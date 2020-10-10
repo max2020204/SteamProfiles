@@ -10,6 +10,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -131,13 +132,7 @@ namespace SteamProfiles
                             }
 
                         }
-                        for (int i = 0; i < metroGrid1.ColumnCount; i++)
-                        {
-                            for (int j = 0; j < metroGrid1.RowCount; j++)
-                            {
-                                metroGrid1.UpdateCellValue(i, j);
-                            }
-                        }
+                        UpdateValue();
                     }
                 }
                 else if (key == null)
@@ -147,25 +142,48 @@ namespace SteamProfiles
                 }
             }
         }
+        void UpdateValue()
+        {
+            for (int i = 0; i < metroGrid1.ColumnCount; i++)
+            {
+                for (int j = 0; j < metroGrid1.RowCount; j++)
+                {
+                    metroGrid1.UpdateCellValue(i, j);
+                }
+            }
+        }
         void CreateSubMenu(string text, string login, string password)
         {
 
             ToolStripMenuItem ToolStrip = new ToolStripMenuItem(text);
             ToolStrip.Text = text;
-            ToolStrip.Click += (s, a) =>
+            
+            ToolStrip.Click += (s,a) =>
             {
+                ProcessStartInfo start = new ProcessStartInfo();
+                start.WindowStyle = ProcessWindowStyle.Hidden;
+                start.FileName = "cmd";
+                start.Arguments = "/c taskkill /F /IM Steam.exe";
+                Process.Start(start);
+                Thread.Sleep(100); 
                 string steam = "";
                 using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles"))
                 {
                     steam = key.GetValue("SteamPath").ToString();
                 }
                 Process p = new Process();
+                
                 p.StartInfo.FileName = steam;
                 p.StartInfo.Arguments = $"-login {login} {password}";
                 p.Start();
             };
             ToolStrip.CheckOnClick = true;
             notifymenustrip.Items.Add(ToolStrip);
+        }
+
+        private void OpenSteam(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -330,7 +348,7 @@ namespace SteamProfiles
 
         private void whiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         }
 
         private void ownColorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -351,17 +369,17 @@ namespace SteamProfiles
 
         private void yellowToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.Yellow;
+            metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Yellow;
         }
 
         private void redToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.Red;
+            metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
         }
 
         private void greenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.Green;
+            metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Green;
         }
 
         private void whiteToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -376,12 +394,12 @@ namespace SteamProfiles
 
         private void redToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            metroGrid1.DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
+            metroGrid1.DefaultCellStyle.ForeColor = Color.Red;
         }
 
         private void greenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            metroGrid1.DefaultCellStyle.ForeColor = System.Drawing.Color.Green;
+            metroGrid1.DefaultCellStyle.ForeColor = Color.Green;
         }
     }
 }
