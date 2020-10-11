@@ -159,9 +159,9 @@ namespace SteamProfiles.Forms
                         .ToList()
                         .ForEach(s => AddFiles(s, files));
                 }
-                catch (UnauthorizedAccessException ex)
+                catch (UnauthorizedAccessException )
                 {
-                    // ok, so we are not allowed to dig into that directory. Move on.
+                  
                 }
             });
             t.Wait();

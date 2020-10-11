@@ -26,6 +26,9 @@ namespace SteamProfiles
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            gridmenustrip.Renderer = new ChangeMunuStrip();
+            
             foreach (string s in System.Environment.GetCommandLineArgs())
             {
                 MinimizeApp(s);
@@ -400,6 +403,11 @@ namespace SteamProfiles
         private void greenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             metroGrid1.DefaultCellStyle.ForeColor = Color.Green;
+        }
+
+        private void updateToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Updates();
         }
     }
 }
