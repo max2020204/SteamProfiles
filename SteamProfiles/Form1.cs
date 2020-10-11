@@ -1,17 +1,11 @@
-﻿using MetroFramework.Forms;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using SteamProfiles.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SteamProfiles
@@ -33,7 +27,7 @@ namespace SteamProfiles
             ToolStripSeparator stripSeparator1 = new ToolStripSeparator();
             stripSeparator1.Alignment = ToolStripItemAlignment.Right;
             notifymenustrip.Items.Add(stripSeparator1);
-            foreach (string s in System.Environment.GetCommandLineArgs())
+            foreach (string s in Environment.GetCommandLineArgs())
             {
                 MinimizeApp(s);
             }
@@ -50,7 +44,6 @@ namespace SteamProfiles
                 ShowInTaskbar = false;
                 Hide();
             }
-
         }
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -161,7 +154,6 @@ namespace SteamProfiles
         }
         void CreateSubMenu(string text, string login, string password)
         {
-
             ToolStripMenuItem ToolStrip = new ToolStripMenuItem(text);
             ToolStrip.Text = text;
             
@@ -184,6 +176,7 @@ namespace SteamProfiles
                 p.StartInfo.Arguments = $"-login {login} {password}";
                 p.Start();
             };
+            ToolStrip.ForeColor = Color.White;
             ToolStrip.CheckOnClick = true;
             notifymenustrip.Items.Add(ToolStrip);
         }

@@ -77,6 +77,9 @@
             this.greenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ownColorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifymenustrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Open = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,14 +94,11 @@
             this.button5 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.notifymenustrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Open = new System.Windows.Forms.ToolStripMenuItem();
             this.gridmenustrip.SuspendLayout();
+            this.notifymenustrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.notifymenustrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridmenustrip
@@ -527,8 +527,33 @@
             this.notifyIcon1.ContextMenuStrip = this.notifymenustrip;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // notifymenustrip
+            // 
+            this.notifymenustrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
+            this.notifymenustrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Open,
+            this.exitToolStripMenuItem});
+            this.notifymenustrip.Name = "contextMenuStrip1";
+            this.notifymenustrip.ShowImageMargin = false;
+            this.notifymenustrip.Size = new System.Drawing.Size(79, 48);
+            // 
+            // Open
+            // 
+            this.Open.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
+            this.Open.ForeColor = System.Drawing.Color.White;
+            this.Open.Name = "Open";
+            this.Open.Size = new System.Drawing.Size(78, 22);
+            this.Open.Text = "Open";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
+            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(78, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
             // 
             // Password
             // 
@@ -737,32 +762,6 @@
             this.colorDialog1.FullOpen = true;
             this.colorDialog1.ShowHelp = true;
             // 
-            // notifymenustrip
-            // 
-            this.notifymenustrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
-            this.notifymenustrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Open,
-            this.exitToolStripMenuItem});
-            this.notifymenustrip.Name = "contextMenuStrip1";
-            this.notifymenustrip.ShowImageMargin = false;
-            this.notifymenustrip.Size = new System.Drawing.Size(156, 70);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
-            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            // 
-            // Open
-            // 
-            this.Open.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
-            this.Open.ForeColor = System.Drawing.Color.White;
-            this.Open.Name = "Open";
-            this.Open.Size = new System.Drawing.Size(155, 22);
-            this.Open.Text = "Open";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -780,11 +779,11 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.gridmenustrip.ResumeLayout(false);
+            this.notifymenustrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.notifymenustrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
