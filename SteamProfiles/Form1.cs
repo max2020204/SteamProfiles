@@ -28,7 +28,11 @@ namespace SteamProfiles
         {
 
             gridmenustrip.Renderer = new ChangeMunuStrip();
-            
+            notifymenustrip.Renderer = new ChangeMunuStrip();
+
+            ToolStripSeparator stripSeparator1 = new ToolStripSeparator();
+            stripSeparator1.Alignment = ToolStripItemAlignment.Right;
+            notifymenustrip.Items.Add(stripSeparator1);
             foreach (string s in System.Environment.GetCommandLineArgs())
             {
                 MinimizeApp(s);
