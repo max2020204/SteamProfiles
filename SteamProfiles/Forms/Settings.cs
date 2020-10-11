@@ -26,30 +26,34 @@ namespace SteamProfiles.Forms
                 openFileDialog.Filter = "Executable files (*.exe)|*.exe";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))
-                    {
-                        bool temp = true;
-                        while (temp)
-                        {
-                            if (key != null)
-                            {
-                                if (key.GetValue("SteamPath") == null)
-                                {
-                                    key.SetValue("SteamPath", openFileDialog.FileName);
-                                }
-                                else
-                                {
-                                    temp = false;
-                                }
-                            }
-                            else
-                            {
-                                Registry.CurrentUser.CreateSubKey(@"Software\SteamProfiles");
-                            }
-                        }
-                    }
+                    RegistrySetPath(openFileDialog.FileName);
                 }
                 textBox1.Text = openFileDialog.FileName;
+            }
+        }
+        void RegistrySetPath(string path)
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))
+            {
+                bool temp = true;
+                while (temp)
+                {
+                    if (key != null)
+                    {
+                        if (key.GetValue("SteamPath") == null)
+                        {
+                            key.SetValue("SteamPath", path);
+                        }
+                        else
+                        {
+                            temp = false;
+                        }
+                    }
+                    else
+                    {
+                        Registry.CurrentUser.CreateSubKey(@"Software\SteamProfiles");
+                    }
+                }
             }
         }
 
@@ -85,11 +89,11 @@ namespace SteamProfiles.Forms
                 }
                 else
                 {
-                    if (registryKey.GetValue("SteamProfiles")!=null)
+                    if (registryKey.GetValue("SteamProfiles") != null)
                     {
                         registryKey.DeleteValue("SteamProfiles");
                     }
-                   
+
                 }
             }
         }
@@ -99,7 +103,7 @@ namespace SteamProfiles.Forms
             {
                 if (key != null)
                 {
-                    if (key.GetValue("SteamProfiles") !=null)
+                    if (key.GetValue("SteamProfiles") != null)
                     {
                         checkBox1.Checked = true;
                         return true;
@@ -109,7 +113,7 @@ namespace SteamProfiles.Forms
                         checkBox1.Checked = false;
                         return false;
                     }
-                  
+
                 }
                 else
                 {
@@ -121,29 +125,37 @@ namespace SteamProfiles.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            List<string> files = new List<string>();
-            metroLabel3.Visible = true;
-            button1.Enabled = false;
-            button2.Enabled = false;
-            AddFiles(comboBox1.SelectedItem.ToString(), files);
-            foreach (var item in files)
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                if (item.Contains("steam.exe"))
+                List<string> files = new List<string>();
+                metroLabel3.Visible = true;
+                button1.Enabled = false;
+                button2.Enabled = false;
+                AddFiles(comboBox1.SelectedItem.ToString(), files);
+                foreach (var item in files)
                 {
-                    DialogResult result = MessageBox.Show($"This is the right path?\n{item}", "Steam path", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+                    if (item.Contains("steam.exe"))
                     {
-                        textBox1.Text = item;
-                        button1.Enabled = true;
-                        button2.Enabled = true;
-                        metroLabel3.Visible = false;
-                        break;
+                        DialogResult result = MessageBox.Show($"This is the right path?\n{item}", "Steam path", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            RegistrySetPath(item);
+                            textBox1.Text = item;
+                            button1.Enabled = true;
+                            button2.Enabled = true;
+                            metroLabel3.Visible = false;
+                            break;
+                        }
                     }
                 }
+                button1.Enabled = true;
+                button2.Enabled = true;
+                metroLabel3.Visible = false;
             }
-            button1.Enabled = true;
-            button2.Enabled = true;
-            metroLabel3.Visible = false;
+            else
+            {
+                MessageBox.Show("Path has already been found");
+            }
         }
         private static void AddFiles(string path, IList<string> files)
         {
@@ -159,9 +171,9 @@ namespace SteamProfiles.Forms
                         .ToList()
                         .ForEach(s => AddFiles(s, files));
                 }
-                catch (UnauthorizedAccessException )
+                catch (UnauthorizedAccessException)
                 {
-                  
+
                 }
             });
             t.Wait();
