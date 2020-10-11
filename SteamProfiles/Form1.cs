@@ -12,7 +12,6 @@ namespace SteamProfiles
 {
     public partial class Form1 : Form
     {
-
         public Form1()
         {
             InitializeComponent();
@@ -51,6 +50,20 @@ namespace SteamProfiles
             notifyIcon1.Visible = false;
             WindowState = FormWindowState.Normal;
         }
+
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+                notifyIcon1.Visible = true;
+            }
+            else if (WindowState == FormWindowState.Normal)
+            {
+                notifyIcon1.Visible = false;
+            }
+        }
         void SteamPath()
         {
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))
@@ -65,19 +78,6 @@ namespace SteamProfiles
                 }
             }
         }
-
-        private void Form1_Resize(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Minimized)
-            {
-                Hide();
-                notifyIcon1.Visible = true;
-            }
-            else if (WindowState == FormWindowState.Normal)
-            {
-                notifyIcon1.Visible = false;
-            }
-        }
         public void Updates(bool password = false)
         {
             metroGrid1.DataSource = null;
@@ -89,7 +89,6 @@ namespace SteamProfiles
                     string[] subkeys = key.GetSubKeyNames();
                     if (subkeys.Length > 0)
                     {
-
                         metroGrid1.Rows.Add(subkeys.Length + 1);
                         for (int i = 0; i < subkeys.Length; i++)
                         {
@@ -99,6 +98,7 @@ namespace SteamProfiles
                                 if (subvalues.Length > 0)
                                 {
                                     metroGrid1.Rows[i].Cells["UserName"].Value = Encriptor.Decypter(k.GetValue(subvalues.Where(x => x.Contains("UserName")).FirstOrDefault()).ToString());
+
                                     metroGrid1.Rows[i].Cells["Login"].Value = Encriptor.Decypter(k.GetValue(subvalues.Where(x => x.Contains("Login")).FirstOrDefault()).ToString());
                                     if (password)
                                     {
@@ -107,7 +107,6 @@ namespace SteamProfiles
                                     else
                                     {
                                         metroGrid1.Rows[i].Cells["Password"].Value = new string('*', Encriptor.Decypter(k.GetValue(subvalues.Where(x => x.Contains("Password")).FirstOrDefault()).ToString()).Length);
-
                                     }
                                     CreateSubMenu(Encriptor.Decypter(k.GetValue(subvalues.Where(x => x.Contains("UserName")).FirstOrDefault()).ToString()),
                                         Encriptor.Decypter(k.GetValue(subvalues.Where(x => x.Contains("Login")).FirstOrDefault()).ToString()),
@@ -130,12 +129,11 @@ namespace SteamProfiles
                                     i--;
                                 }
                             }
-
                         }
                         UpdateValue();
                     }
                 }
-                else if (key == null)
+                else
                 {
                     Registry.CurrentUser.CreateSubKey($@"Software\SteamProfiles");
                     SteamPath();
@@ -156,22 +154,22 @@ namespace SteamProfiles
         {
             ToolStripMenuItem ToolStrip = new ToolStripMenuItem(text);
             ToolStrip.Text = text;
-            
-            ToolStrip.Click += (s,a) =>
+
+            ToolStrip.Click += (s, a) =>
             {
                 ProcessStartInfo start = new ProcessStartInfo();
                 start.WindowStyle = ProcessWindowStyle.Hidden;
                 start.FileName = "cmd";
                 start.Arguments = "/c taskkill /F /IM Steam.exe";
                 Process.Start(start);
-                Thread.Sleep(100); 
+                Thread.Sleep(100);
                 string steam = "";
                 using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles"))
                 {
                     steam = key.GetValue("SteamPath").ToString();
                 }
                 Process p = new Process();
-                
+
                 p.StartInfo.FileName = steam;
                 p.StartInfo.Arguments = $"-login {login} {password}";
                 p.Start();
@@ -179,21 +177,6 @@ namespace SteamProfiles
             ToolStrip.ForeColor = Color.White;
             ToolStrip.CheckOnClick = true;
             notifymenustrip.Items.Add(ToolStrip);
-        }
-
-        private void OpenSteam(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Show();
         }
         private void addToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -207,7 +190,23 @@ namespace SteamProfiles
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new RemoveProfile().Show();
+            RemoveRow(metroGrid1);
+        }
+        void RemoveRow(DataGridView metroGrid1)
+        {
+            foreach (DataGridViewRow row in metroGrid1.SelectedRows)
+            {
+                try
+                {
+                    Registry.CurrentUser.DeleteSubKey($@"Software\SteamProfiles\{row.Cells[0].Value.ToString().Replace(" ", "")}");
+                    MessageBox.Show("Removed Successfully");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                metroGrid1.Rows.Remove(row);
+            }
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -317,7 +316,7 @@ namespace SteamProfiles
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new RemoveProfile().Show();
+            RemoveRow(metroGrid1);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -405,6 +404,16 @@ namespace SteamProfiles
         private void updateToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Updates();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void Open_Click(object sender, EventArgs e)
+        {
+            Show();
         }
     }
 }

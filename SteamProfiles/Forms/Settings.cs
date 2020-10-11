@@ -85,7 +85,6 @@ namespace SteamProfiles.Forms
                 if (isChecked)
                 {
                     registryKey.SetValue("SteamProfiles", Application.ExecutablePath + " -silent");
-
                 }
                 else
                 {
@@ -113,7 +112,6 @@ namespace SteamProfiles.Forms
                         checkBox1.Checked = false;
                         return false;
                     }
-
                 }
                 else
                 {

@@ -39,10 +39,5 @@ namespace SteamProfiles.Forms
             }
 
         }
-
-        private void AddProfile_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            new Form1().Updates();
-        }
     }
 }

@@ -37,7 +37,6 @@
             this.navigationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPasswordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,6 +93,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridmenustrip.SuspendLayout();
             this.notifymenustrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
@@ -126,7 +126,7 @@
             this.settingsToolStripMenuItem1});
             this.navigationToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.navigationToolStripMenuItem.Name = "navigationToolStripMenuItem";
-            this.navigationToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.navigationToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.navigationToolStripMenuItem.Text = "Navigation";
             // 
             // addToolStripMenuItem1
@@ -134,7 +134,7 @@
             this.addToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
             this.addToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
-            this.addToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
+            this.addToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.addToolStripMenuItem1.Text = "Add";
             this.addToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
             // 
@@ -143,25 +143,16 @@
             this.editToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
             this.editToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.editToolStripMenuItem1.Text = "Edit";
             this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
-            this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
             this.updateToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updateToolStripMenuItem.Text = "Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
@@ -173,7 +164,7 @@
             this.hideToolStripMenuItem});
             this.showPasswordsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.showPasswordsToolStripMenuItem.Name = "showPasswordsToolStripMenuItem";
-            this.showPasswordsToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.showPasswordsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showPasswordsToolStripMenuItem.Text = "Passwords";
             // 
             // showToolStripMenuItem
@@ -199,14 +190,14 @@
             this.settingsToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
             this.settingsToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.settingsToolStripMenuItem1.Name = "settingsToolStripMenuItem1";
-            this.settingsToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
+            this.settingsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.settingsToolStripMenuItem1.Text = "Settings";
             // 
             // updateToolStripMenuItem1
             // 
             this.updateToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.updateToolStripMenuItem1.Name = "updateToolStripMenuItem1";
-            this.updateToolStripMenuItem1.Size = new System.Drawing.Size(143, 22);
+            this.updateToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
             this.updateToolStripMenuItem1.Text = "Update";
             this.updateToolStripMenuItem1.Click += new System.EventHandler(this.updateToolStripMenuItem1_Click);
             // 
@@ -224,7 +215,7 @@
             this.toolStripMenuItem10});
             this.headerSizeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.headerSizeToolStripMenuItem.Name = "headerSizeToolStripMenuItem";
-            this.headerSizeToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.headerSizeToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.headerSizeToolStripMenuItem.Text = "Header Size";
             // 
             // toolStripMenuItem2
@@ -318,7 +309,7 @@
             this.ownColorToolStripMenuItem});
             this.headerTextColorToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.headerTextColorToolStripMenuItem.Name = "headerTextColorToolStripMenuItem";
-            this.headerTextColorToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.headerTextColorToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.headerTextColorToolStripMenuItem.Text = "Header Text Color";
             // 
             // whiteToolStripMenuItem
@@ -380,7 +371,7 @@
             this.toolStripMenuItem18});
             this.cellsSizeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.cellsSizeToolStripMenuItem.Name = "cellsSizeToolStripMenuItem";
-            this.cellsSizeToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cellsSizeToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.cellsSizeToolStripMenuItem.Text = "Cells Size";
             // 
             // toolStripMenuItem11
@@ -474,7 +465,7 @@
             this.ownColorToolStripMenuItem1});
             this.celTextColorToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.celTextColorToolStripMenuItem.Name = "celTextColorToolStripMenuItem";
-            this.celTextColorToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.celTextColorToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.celTextColorToolStripMenuItem.Text = "Cel Text Color";
             // 
             // whiteToolStripMenuItem1
@@ -546,6 +537,7 @@
             this.Open.Name = "Open";
             this.Open.Size = new System.Drawing.Size(78, 22);
             this.Open.Text = "Open";
+            this.Open.Click += new System.EventHandler(this.Open_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -554,6 +546,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(78, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // Password
             // 
@@ -762,6 +755,15 @@
             this.colorDialog1.FullOpen = true;
             this.colorDialog1.ShowHelp = true;
             // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
+            this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -794,7 +796,6 @@
         private System.Windows.Forms.ToolStripMenuItem navigationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem headerSizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
@@ -826,7 +827,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewTextBoxColumn Login;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
-        private MetroFramework.Controls.MetroGrid metroGrid1;
         internal System.Windows.Forms.Button button6;
         internal System.Windows.Forms.Button button4;
         internal System.Windows.Forms.Button button3;
@@ -850,6 +850,8 @@
         private System.Windows.Forms.ContextMenuStrip notifymenustrip;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Open;
+        public MetroFramework.Controls.MetroGrid metroGrid1;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
 

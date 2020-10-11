@@ -80,12 +80,6 @@
     <Compile Include="Forms\EditProfile.Designer.cs">
       <DependentUpon>EditProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RemoveProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\RemoveProfile.Designer.cs">
-      <DependentUpon>RemoveProfile.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,9 +96,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditProfile.resx">
       <DependentUpon>EditProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RemoveProfile.resx">
-      <DependentUpon>RemoveProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
