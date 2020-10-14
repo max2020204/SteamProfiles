@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SteamProfiles.ChangeMenuStrip
 {
-    class ChangeHoverColor : ProfessionalColorTable
+    class ChangeHoverColorLight : ProfessionalColorTable
     {
         public override Color MenuItemSelected
         {

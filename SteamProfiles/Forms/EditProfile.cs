@@ -17,57 +17,51 @@ namespace SteamProfiles.Forms
         {
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
                 if (!string.IsNullOrWhiteSpace(textBox2.Text) && string.IsNullOrWhiteSpace(textBox3.Text))
                 {
-                    using (RegistryKey reg = Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox1.Text}", true))
+                    using RegistryKey reg = Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox1.Text}", true);
+                    if (reg != null)
                     {
-                        if (reg != null)
+                        if (Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}") == null)
                         {
-                            if (Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}") == null)
-                            {
-                                string login = Encriptor.Decypter(reg.GetValue("Login").ToString());
-                                string password = Encriptor.Decypter(reg.GetValue("Password").ToString());
-                                Registry.CurrentUser.DeleteSubKey($@"SOFTWARE\SteamProfiles\{textBox1.Text}");
-                                Registry.CurrentUser.CreateSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}");
-                                Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("UserName", Encriptor.Encypter(textBox2.Text));
-                                Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("Login", Encriptor.Encypter(login));
-                                Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("Password", Encriptor.Encypter(password));
-                                MessageBox.Show("Done");
-                            }
+                            string login = Encriptor.Decypter(reg.GetValue("Login").ToString());
+                            string password = Encriptor.Decypter(reg.GetValue("Password").ToString());
+                            Registry.CurrentUser.DeleteSubKey($@"SOFTWARE\SteamProfiles\{textBox1.Text}");
+                            Registry.CurrentUser.CreateSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}");
+                            Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("UserName", Encriptor.Encypter(textBox2.Text));
+                            Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("Login", Encriptor.Encypter(login));
+                            Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("Password", Encriptor.Encypter(password));
+                            MessageBox.Show("Done");
                         }
                     }
                 }
                 if (!string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
                 {
-                    using (RegistryKey reg = Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox1.Text}", true))
+                    using RegistryKey reg = Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox1.Text}", true);
+                    if (reg != null)
                     {
-                        if (reg != null)
-                        {
-                            string login = Encriptor.Decypter(reg.GetValue("Login").ToString());
-                            Registry.CurrentUser.DeleteSubKey($@"SOFTWARE\SteamProfiles\{textBox1.Text}");
-                            Registry.CurrentUser.CreateSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}");
-                            Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("UserName", Encriptor.Encypter(textBox2.Text));
-                            Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("Login", Encriptor.Encypter(login));
-                            Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("Password", Encriptor.Encypter(textBox3.Text));
-                            MessageBox.Show("Done");
+                        string login = Encriptor.Decypter(reg.GetValue("Login").ToString());
+                        Registry.CurrentUser.DeleteSubKey($@"SOFTWARE\SteamProfiles\{textBox1.Text}");
+                        Registry.CurrentUser.CreateSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}");
+                        Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("UserName", Encriptor.Encypter(textBox2.Text));
+                        Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("Login", Encriptor.Encypter(login));
+                        Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("Password", Encriptor.Encypter(textBox3.Text));
+                        MessageBox.Show("Done");
 
-                        }
                     }
                 }
                 if (!string.IsNullOrWhiteSpace(textBox3.Text) && string.IsNullOrWhiteSpace(textBox2.Text))
                 {
-                    using (RegistryKey reg = Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox1.Text}", true))
+                    using RegistryKey reg = Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox1.Text}", true);
+                    if (reg != null)
                     {
-                        if (reg != null)
-                        {
-                            reg.DeleteValue("Password");
-                            reg.SetValue("Password", Encriptor.Encypter(textBox3.Text));
-                            MessageBox.Show("Done");
-                        }
+                        reg.DeleteValue("Password");
+                        reg.SetValue("Password", Encriptor.Encypter(textBox3.Text));
+                        MessageBox.Show("Done");
                     }
                 }
             }
@@ -75,6 +69,29 @@ namespace SteamProfiles.Forms
             {
                 MessageBox.Show("Fill your username");
             }
+        }
+
+        private void EditProfile_Load(object sender, EventArgs e)
+        {
+            using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
+            if (key != null)
+            {
+                if (key.GetValue("Mode")?.ToString() == "Dark")
+                {
+                    GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(45, 45, 45), Color.FromArgb(55, 55, 55));
+                    button1.BackColor = Color.FromArgb(28, 28, 28);
+                }
+                else if (key.GetValue("Mode")?.ToString() == "Light")
+                {
+                    GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(0, 0, 50), Color.FromArgb(0, 0, 75));
+                    button1.BackColor = Color.FromArgb(0, 0, 50);
+                }
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

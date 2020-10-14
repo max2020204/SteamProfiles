@@ -1,5 +1,4 @@
-﻿using SteamProfiles.ChangeMenuStrip;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SteamProfiles
+namespace SteamProfiles.ChangeMenuStrip
 {
-    class ChangeMunuStrip : ToolStripProfessionalRenderer
+    class ChangeMunuStripDark : ToolStripProfessionalRenderer
     {
-        public ChangeMunuStrip() : base(new ChangeHoverColor()) 
-        { 
+        public ChangeMunuStripDark() : base(new ChangeHoverColorDark())
+        {
 
         }
         protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
@@ -22,7 +21,5 @@ namespace SteamProfiles
                 e.ArrowColor = Color.White;
             base.OnRenderArrow(e);
         }
-       
-     
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.Win32;
+﻿using MetroFramework.Controls;
+using MetroFramework.Forms;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToggleSlider;
 
 namespace SteamProfiles.Forms
 {
@@ -21,44 +24,43 @@ namespace SteamProfiles.Forms
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            using OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                openFileDialog.Filter = "Executable files (*.exe)|*.exe";
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    RegistrySetPath(openFileDialog.FileName);
-                }
-                textBox1.Text = openFileDialog.FileName;
+                Filter = "Executable files (*.exe)|*.exe"
+            };
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                RegistrySetPath(openFileDialog.FileName);
             }
+            textBox1.Text = openFileDialog.FileName;
         }
         void RegistrySetPath(string path)
         {
-            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))
+            using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
+            bool temp = true;
+            while (temp)
             {
-                bool temp = true;
-                while (temp)
+                if (key != null)
                 {
-                    if (key != null)
+                    if (key.GetValue("SteamPath") == null)
                     {
-                        if (key.GetValue("SteamPath") == null)
-                        {
-                            key.SetValue("SteamPath", path);
-                        }
-                        else
-                        {
-                            temp = false;
-                        }
+                        key.SetValue("SteamPath", path);
                     }
                     else
                     {
-                        Registry.CurrentUser.CreateSubKey(@"Software\SteamProfiles");
+                        temp = false;
                     }
+                }
+                else
+                {
+                    Registry.CurrentUser.CreateSubKey(@"Software\SteamProfiles");
                 }
             }
         }
 
         private void Settings_Load(object sender, EventArgs e)
         {
+            ThemeMode();
             if (!Check())
             {
                 RegisterInStartup(checkBox1.Checked);
@@ -74,44 +76,35 @@ namespace SteamProfiles.Forms
             comboBox1.SelectedItem = comboBox1.Items[0];
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             RegisterInStartup(checkBox1.Checked);
         }
         private void RegisterInStartup(bool isChecked)
         {
-            using (RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true))
+            using RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+            if (isChecked)
             {
-                if (isChecked)
+                registryKey.SetValue("SteamProfiles", Application.ExecutablePath + " -silent");
+            }
+            else
+            {
+                if (registryKey.GetValue("SteamProfiles") != null)
                 {
-                    registryKey.SetValue("SteamProfiles", Application.ExecutablePath + " -silent");
+                    registryKey.DeleteValue("SteamProfiles");
                 }
-                else
-                {
-                    if (registryKey.GetValue("SteamProfiles") != null)
-                    {
-                        registryKey.DeleteValue("SteamProfiles");
-                    }
 
-                }
             }
         }
         bool Check()
         {
-            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run"))
+            using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+            if (key != null)
             {
-                if (key != null)
+                if (key.GetValue("SteamProfiles") != null)
                 {
-                    if (key.GetValue("SteamProfiles") != null)
-                    {
-                        checkBox1.Checked = true;
-                        return true;
-                    }
-                    else
-                    {
-                        checkBox1.Checked = false;
-                        return false;
-                    }
+                    checkBox1.Checked = true;
+                    return true;
                 }
                 else
                 {
@@ -119,9 +112,13 @@ namespace SteamProfiles.Forms
                     return false;
                 }
             }
+            else
+            {
+                checkBox1.Checked = false;
+                return false;
+            }
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
@@ -176,6 +173,44 @@ namespace SteamProfiles.Forms
             });
             t.Wait();
         }
+        void ThemeMode()
+        {
+            using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
+            if (key.GetValue("Mode")?.ToString() == "Dark")
+            {
+                GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(45, 45, 45), Color.FromArgb(55, 55, 55));
+                toggleSliderComponent1.ToggleBarText = "On";
+                toggleSliderComponent1.Checked = true;
+                BackColor = Color.FromArgb(28, 28, 28);
+            }
+            else if (key.GetValue("Mode")?.ToString() == "Light")
+            {
+                GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(0, 0, 50), Color.FromArgb(0, 0, 75));
+                toggleSliderComponent1.ToggleBarText = "Off";
+                toggleSliderComponent1.Checked = false;
+                BackColor = Color.FromArgb(0, 0, 50);
+            }
+        }
+        private void ToggleSliderComponent1_CheckChanged(object sender, EventArgs e)
+        {
+            using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
+            if (toggleSliderComponent1.Checked)
+            {
+                toggleSliderComponent1.ToggleBarText = "On";
+                GetAllControls.ThemeChange(toggleSliderComponent1.Checked, this, Color.FromArgb(45, 45, 45), Color.FromArgb(55, 55, 55));
+                BackColor = Color.FromArgb(45, 45, 45);
+                key.SetValue("Mode", "Dark");
+            }
+            else
+            {
+                toggleSliderComponent1.ToggleBarText = "Off";
+                GetAllControls.ThemeChange(toggleSliderComponent1.Checked, this, Color.FromArgb(0, 0, 50), Color.FromArgb(0, 0, 75));
+                BackColor = Color.FromArgb(0, 0, 50);
+                key.SetValue("Mode", "Light");
+            }
+        }
+
+
     }
 }
 
