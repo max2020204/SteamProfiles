@@ -22,7 +22,7 @@ namespace SteamProfiles.Forms
         {
             if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
             {
-                using (RegistryKey key = Registry.CurrentUser.OpenSubKey($@"Software\SteamProfiles\{textBox1.Text}", true))
+                using (RegistryKey key = Registry.CurrentUser.CreateSubKey($@"Software\SteamProfiles\{textBox2.Text}"))
                 {
                     key.SetValue("UserName", Encriptor.Encypter(textBox1.Text));
                     key.SetValue("Login", Encriptor.Encypter(textBox2.Text));

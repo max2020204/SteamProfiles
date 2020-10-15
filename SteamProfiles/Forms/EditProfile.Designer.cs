@@ -112,9 +112,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 25);
+            this.label1.Size = new System.Drawing.Size(63, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "UserName:";
+            this.label1.Text = "Login:";
             // 
             // button1
             // 
