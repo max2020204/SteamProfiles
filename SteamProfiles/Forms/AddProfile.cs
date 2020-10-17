@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,36 +15,73 @@ namespace SteamProfiles.Forms
 {
     public partial class AddProfile : Form
     {
+        ResourceManager res;
+        private string UserNameError, LoginError, PasswordError, Success, FieldsError;
+
         public AddProfile()
         {
+            SelectLanguage.Lang();
             InitializeComponent();
         }
-
+        void Switch_language()
+        {
+            UserNameError = res.GetString("UserNameError");
+            LoginError = res.GetString("LoginError");
+            PasswordError = res.GetString("PasswordError");
+            Success = res.GetString("Success");
+            FieldsError = res.GetString("FieldsError");
+        }
         private void Button1_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
             {
                 using (RegistryKey key = Registry.CurrentUser.CreateSubKey($@"Software\SteamProfiles\{textBox2.Text}"))
                 {
-                    key.SetValue("UserName", Encriptor.Encypter(textBox1.Text));
-                    key.SetValue("Login", Encriptor.Encypter(textBox2.Text));
-                    key.SetValue("Password", Encriptor.Encypter(textBox3.Text));
+                    string user = Encriptor.Encypter(textBox1.Text);
+                    string login = Encriptor.Encypter(textBox2.Text);
+                    string pass = Encriptor.Encypter(textBox3.Text);
+                    if (user != "")
+                    {
+                        key.SetValue("UserName", user);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show(UserNameError);
+                    }
+                    if (login != "")
+                    {
+                        key.SetValue("Login", login);
+                    }
+                    else
+                    {
+                        MessageBox.Show(LoginError);
+                    }
+                    if (pass != "")
+                    {
+                        key.SetValue("Password", pass);
+                    }
+                    else
+                    {
+                        MessageBox.Show(PasswordError);
+                    }
+
                 }
                 textBox1.Clear();
                 textBox2.Clear();
                 textBox3.Clear();
-                MessageBox.Show("Added Successfully");
+                MessageBox.Show(Success);
             }
             else
             {
-                MessageBox.Show("Fill the fields");
+                MessageBox.Show(FieldsError);
             }
 
         }
-
         private void AddProfile_Load(object sender, EventArgs e)
         {
-
+            res = new ResourceManager("SteamProfiles.Resource.Add.Res", typeof(Settings).Assembly);
+            Switch_language();
             using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
             if (key != null)
             {

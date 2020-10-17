@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,9 +15,18 @@ namespace SteamProfiles.Forms
 {
     public partial class EditProfile : Form
     {
+        ResourceManager res;
+        private string Done, LoginError;
         public EditProfile()
         {
+            SelectLanguage.Lang();
             InitializeComponent();
+        }
+        void switch_language()
+        {
+            Done = res.GetString("Done");
+            LoginError = res.GetString("LoginError");
+            
         }
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -27,7 +38,7 @@ namespace SteamProfiles.Forms
                     if (reg != null)
                     {
                         Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox1.Text}", true).SetValue("UserName", Encriptor.Encypter(textBox2.Text));
-                        MessageBox.Show("Done");
+                        MessageBox.Show(Done);
                     }
                 }
                 if (!string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
@@ -37,7 +48,7 @@ namespace SteamProfiles.Forms
                     {
                         Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("UserName", Encriptor.Encypter(textBox2.Text));
                         Registry.CurrentUser.OpenSubKey($@"SOFTWARE\SteamProfiles\{textBox2.Text}", true).SetValue("Password", Encriptor.Encypter(textBox3.Text));
-                        MessageBox.Show("Done");
+                        MessageBox.Show(Done);
 
                     }
                 }
@@ -47,18 +58,20 @@ namespace SteamProfiles.Forms
                     if (reg != null)
                     {
                         reg.SetValue("Password", Encriptor.Encypter(textBox3.Text));
-                        MessageBox.Show("Done");
+                        MessageBox.Show(Done);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Fill your username");
+                MessageBox.Show(LoginError);
             }
         }
 
         private void EditProfile_Load(object sender, EventArgs e)
         {
+            res = new ResourceManager("SteamProfiles.Resource.Edit.Res", typeof(Settings).Assembly);
+            switch_language();
             using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
             if (key != null)
             {
@@ -73,11 +86,6 @@ namespace SteamProfiles.Forms
                     button1.BackColor = Color.FromArgb(0, 0, 50);
                 }
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

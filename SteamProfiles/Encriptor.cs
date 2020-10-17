@@ -5,6 +5,7 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SteamProfiles
 {
@@ -13,156 +14,175 @@ namespace SteamProfiles
         static string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!.,<>{}[]\"№;%':?*()_+-=/\\0123456789";
         public static string Encypter(in string text)
         {
-            string key = Key();
-            string tn = "";
-            string kn = "";
             string result = "";
-            for (int i = 0; i < text.Length; i++)
+            try
             {
-                for (int j = 0; j < alphabet.Length; j++)
+                string key = Key();
+                string tn = "";
+                string kn = "";
+
+                for (int i = 0; i < text.Length; i++)
                 {
-                    if (text[i] == ' ')
+                    for (int j = 0; j < alphabet.Length; j++)
                     {
-                        if (tn.Length > 0)
+                        if (text[i] == ' ')
                         {
-                            tn = tn.Remove(tn.Length - 1);
+                            if (tn.Length > 0)
+                            {
+                                tn = tn.Remove(tn.Length - 1);
+                            }
+                            tn += " ";
+                            break;
                         }
-                        tn += " ";
-                        break;
-                    }
-                    if (text[i] == alphabet[j])
-                    {
-                        tn += j + "-";
+                        if (text[i] == alphabet[j])
+                        {
+                            tn += j + "-";
+                        }
                     }
                 }
-            }
-            tn = tn.Remove(tn.Length - 1);
-            for (int i = 0; i < key.Length; i++)
-            {
-                for (int j = 0; j < alphabet.Length; j++)
+                tn = tn.Remove(tn.Length - 1);
+                for (int i = 0; i < key.Length; i++)
                 {
-                    if (key[i] == alphabet[j])
+                    for (int j = 0; j < alphabet.Length; j++)
                     {
-                        kn += j + "-";
+                        if (key[i] == alphabet[j])
+                        {
+                            kn += j + "-";
+                        }
                     }
                 }
-            }
-            kn = kn.Remove(kn.Length - 1);
-            string[] textnumber = tn.Split(' ');
-            string encn = "";
-            string[] keysp = kn.Split('-');
-            for (int i = 0; i < textnumber.Length; i++)
-            {
-                string[] textsp = textnumber[i].Split('-');
-                for (int j = 0, k = 0; j < textsp.Length; j++, k++)
+                kn = kn.Remove(kn.Length - 1);
+                string[] textnumber = tn.Split(' ');
+                string encn = "";
+                string[] keysp = kn.Split('-');
+                for (int i = 0; i < textnumber.Length; i++)
                 {
-                    if (k >= keysp.Length)
+                    string[] textsp = textnumber[i].Split('-');
+                    for (int j = 0, k = 0; j < textsp.Length; j++, k++)
                     {
-                        k = 0;
+                        if (k >= keysp.Length)
+                        {
+                            k = 0;
+                        }
+                        var tmp = Convert.ToInt32(textsp[j].ToString());
+                        var tmp1 = Convert.ToInt32(keysp[k].ToString());
+                        var add = tmp + tmp1;
+                        if (add >= alphabet.Length)
+                        {
+                            add -= alphabet.Length;
+                        }
+                        encn += add + "-";
                     }
-                    var tmp = Convert.ToInt32(textsp[j].ToString());
-                    var tmp1 = Convert.ToInt32(keysp[k].ToString());
-                    var add = tmp + tmp1;
-                    if (add >= alphabet.Length)
-                    {
-                        add -= alphabet.Length;
-                    }
-                    encn += add + "-";
+                    encn = encn.Remove(encn.Length - 1);
+                    encn += " ";
+
                 }
                 encn = encn.Remove(encn.Length - 1);
-                encn += " ";
+                string[] entotext = encn.Split(' ');
 
-            }
-            encn = encn.Remove(encn.Length - 1);
-            string[] entotext = encn.Split(' ');
-
-            for (int i = 0; i < entotext.Length; i++)
-            {
-                string[] sp = entotext[i].Split('-');
-                for (int j = 0; j < sp.Length; j++)
+                for (int i = 0; i < entotext.Length; i++)
                 {
-                    result += alphabet[Convert.ToInt32(sp[j])];
+                    string[] sp = entotext[i].Split('-');
+                    for (int j = 0; j < sp.Length; j++)
+                    {
+                        result += alphabet[Convert.ToInt32(sp[j])];
+                    }
+                    result += " ";
                 }
-                result += " ";
+                return ToHex(ToBase64(result));
             }
-            return ToHex(ToBase64(result));
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            return "";
         }
         public static string Decypter(string text)
         {
-            string key = Key();
-            string tn = "";
-            string kn = "";
-            string result = "";
-            text = FromBase64(FromHex(text));
-            for (int i = 0; i < text.Length; i++)
+            try
             {
-                for (int j = 0; j < alphabet.Length; j++)
+                string key = Key();
+                string tn = "";
+                string kn = "";
+                string result = "";
+                text = FromBase64(FromHex(text));
+                for (int i = 0; i < text.Length; i++)
                 {
-                    if (text[i] == ' ')
+                    for (int j = 0; j < alphabet.Length; j++)
                     {
-                        if (tn.Length > 0)
+                        if (text[i] == ' ')
                         {
-                            tn = tn.Remove(tn.Length - 1);
+                            if (tn.Length > 0)
+                            {
+                                tn = tn.Remove(tn.Length - 1);
+                            }
+                            tn += " ";
+                            break;
                         }
-                        tn += " ";
-                        break;
-                    }
-                    if (text[i] == alphabet[j])
-                    {
-                        tn += j + "-";
+                        if (text[i] == alphabet[j])
+                        {
+                            tn += j + "-";
+                        }
                     }
                 }
-            }
-            tn = tn.Remove(tn.Length - 1);
-            for (int i = 0; i < key.Length; i++)
-            {
-                for (int j = 0; j < alphabet.Length; j++)
+                tn = tn.Remove(tn.Length - 1);
+                for (int i = 0; i < key.Length; i++)
                 {
-                    if (key[i] == alphabet[j])
+                    for (int j = 0; j < alphabet.Length; j++)
                     {
-                        kn += j + "-";
+                        if (key[i] == alphabet[j])
+                        {
+                            kn += j + "-";
+                        }
                     }
                 }
-            }
-            kn = kn.Remove(kn.Length - 1);
-            string[] textnumber = tn.Split(' ');
-            string encn = "";
-            string[] keysp = kn.Split('-');
-            for (int i = 0; i < textnumber.Length; i++)
-            {
-                string[] textsp = textnumber[i].Split('-');
-                for (int j = 0, k = 0; j < textsp.Length; j++, k++)
+                kn = kn.Remove(kn.Length - 1);
+                string[] textnumber = tn.Split(' ');
+                string encn = "";
+                string[] keysp = kn.Split('-');
+                for (int i = 0; i < textnumber.Length; i++)
                 {
-                    if (k >= keysp.Length)
+                    string[] textsp = textnumber[i].Split('-');
+                    for (int j = 0, k = 0; j < textsp.Length; j++, k++)
                     {
-                        k = 0;
+                        if (k >= keysp.Length)
+                        {
+                            k = 0;
+                        }
+                        var tmp = Convert.ToInt32(textsp[j].ToString());
+                        var tmp1 = Convert.ToInt32(keysp[k].ToString());
+                        var add = tmp - tmp1 + alphabet.Length;
+                        if (add >= alphabet.Length)
+                        {
+                            add -= alphabet.Length;
+                        }
+                        encn += add + "-";
                     }
-                    var tmp = Convert.ToInt32(textsp[j].ToString());
-                    var tmp1 = Convert.ToInt32(keysp[k].ToString());
-                    var add = tmp - tmp1 + alphabet.Length;
-                    if (add >= alphabet.Length)
-                    {
-                        add -= alphabet.Length;
-                    }
-                    encn += add + "-";
+                    encn = encn.Remove(encn.Length - 1);
+                    encn += " ";
+
                 }
                 encn = encn.Remove(encn.Length - 1);
-                encn += " ";
+                string[] entotext = encn.Split(' ');
 
-            }
-            encn = encn.Remove(encn.Length - 1);
-            string[] entotext = encn.Split(' ');
-
-            for (int i = 0; i < entotext.Length; i++)
-            {
-                string[] sp = entotext[i].Split('-');
-                for (int j = 0; j < sp.Length; j++)
+                for (int i = 0; i < entotext.Length; i++)
                 {
-                    result += alphabet[Convert.ToInt32(sp[j])];
+                    string[] sp = entotext[i].Split('-');
+                    for (int j = 0; j < sp.Length; j++)
+                    {
+                        result += alphabet[Convert.ToInt32(sp[j])];
+                    }
+                    result += " ";
                 }
-                result += " ";
+                return result;
             }
-            return result;
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            return "";
         }
         static string ToBase64(string value)
         {

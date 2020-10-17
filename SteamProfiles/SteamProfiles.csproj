@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -36,6 +51,12 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>32white.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
@@ -73,6 +94,23 @@
     <Compile Include="ChangeMenuStrip\ChangeMunuStripDark.cs" />
     <Compile Include="ChangeMenuStrip\ChangeMunuStripLight.cs" />
     <Compile Include="Encriptor.cs" />
+    <Compile Include="Forms\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\Settings\Res.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\Settings\Res.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.ru.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectLanguage.cs" />
     <Compile Include="SteamProfiles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +139,32 @@
     <Compile Include="Json\StyleSettings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddProfile.ru.resx">
+      <DependentUpon>AddProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditProfile.ru.resx">
+      <DependentUpon>EditProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings.ru.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Add\Res.en.resx" />
+    <EmbeddedResource Include="Resource\Add\Res.ru.resx" />
+    <EmbeddedResource Include="Resource\Edit\Res.en.resx" />
+    <EmbeddedResource Include="Resource\Edit\Res.ru.resx" />
+    <EmbeddedResource Include="Resource\Settings\Res.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Settings\Res.ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\SteamProfiles\Res.en.resx" />
+    <EmbeddedResource Include="Resource\SteamProfiles\Res.ru.resx" />
     <EmbeddedResource Include="SteamProfiles.resx">
       <DependentUpon>SteamProfiles.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +186,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SteamProfiles.ru.resx">
+      <DependentUpon>SteamProfiles.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -138,6 +205,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="32white.ico" />
+    <Content Include="ToggleSlider.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resource\About\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>

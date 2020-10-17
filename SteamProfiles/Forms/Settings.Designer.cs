@@ -30,7 +30,6 @@ namespace SteamProfiles.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.button1 = new System.Windows.Forms.Button();
@@ -46,233 +45,210 @@ namespace SteamProfiles.Forms
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.toggleSliderComponent1 = new ToggleSlider.ToggleSliderComponent();
-            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroLabel1
             // 
-            this.metroLabel1.AutoSize = true;
+            resources.ApplyResources(this.metroLabel1, "metroLabel1");
             this.metroLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel1.ForeColor = System.Drawing.Color.White;
-            this.metroLabel1.Location = new System.Drawing.Point(12, 18);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(109, 25);
-            this.metroLabel1.TabIndex = 0;
-            this.metroLabel1.Text = "Steam Path: ";
             this.metroLabel1.UseCustomBackColor = true;
             this.metroLabel1.UseCustomForeColor = true;
             this.metroLabel1.UseStyleColors = true;
             // 
             // button1
             // 
+            resources.ApplyResources(this.button1, "button1");
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(75)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(439, 20);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Browse";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.metroLabel1);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(584, 101);
-            this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Path";
             // 
             // groupBox3
             // 
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.metroLabel3);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Controls.Add(this.metroLabel2);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(3, 46);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(578, 52);
-            this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "AutoFind";
             // 
             // metroLabel3
             // 
-            this.metroLabel3.AutoSize = true;
+            resources.ApplyResources(this.metroLabel3, "metroLabel3");
             this.metroLabel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel3.ForeColor = System.Drawing.Color.White;
-            this.metroLabel3.Location = new System.Drawing.Point(337, 21);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(119, 25);
-            this.metroLabel3.TabIndex = 7;
-            this.metroLabel3.Text = "please wait.....";
             this.metroLabel3.UseCustomBackColor = true;
             this.metroLabel3.UseCustomForeColor = true;
             this.metroLabel3.UseStyleColors = true;
-            this.metroLabel3.Visible = false;
             // 
             // button2
             // 
+            resources.ApplyResources(this.button2, "button2");
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(75)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(251, 23);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Find";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // comboBox1
             // 
+            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
             this.comboBox1.ForeColor = System.Drawing.Color.White;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(124, 25);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 6;
             // 
             // metroLabel2
             // 
-            this.metroLabel2.AutoSize = true;
+            resources.ApplyResources(this.metroLabel2, "metroLabel2");
             this.metroLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel2.ForeColor = System.Drawing.Color.White;
-            this.metroLabel2.Location = new System.Drawing.Point(9, 18);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(107, 25);
-            this.metroLabel2.TabIndex = 5;
-            this.metroLabel2.Text = "Steam Drive";
             this.metroLabel2.UseCustomBackColor = true;
             this.metroLabel2.UseCustomForeColor = true;
             this.metroLabel2.UseStyleColors = true;
             // 
             // textBox1
             // 
+            resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
             this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(127, 21);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(306, 22);
-            this.textBox1.TabIndex = 3;
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
             this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(290, 52);
-            this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Autorun";
             // 
             // checkBox1
             // 
-            this.checkBox1.AutoSize = true;
+            resources.ApplyResources(this.checkBox1, "checkBox1");
             this.checkBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(12, 19);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(83, 25);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Autorun";
             this.checkBox1.UseVisualStyleBackColor = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 101);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(584, 52);
-            this.panel1.TabIndex = 1;
             // 
             // groupBox4
             // 
+            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
             this.groupBox4.Controls.Add(this.toggleSliderComponent1);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(294, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(290, 52);
-            this.groupBox4.TabIndex = 7;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Dark Theme";
             // 
             // toggleSliderComponent1
             // 
-            this.toggleSliderComponent1.AutoSize = true;
+            resources.ApplyResources(this.toggleSliderComponent1, "toggleSliderComponent1");
             this.toggleSliderComponent1.Checked = false;
-            this.toggleSliderComponent1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toggleSliderComponent1.Location = new System.Drawing.Point(3, 18);
             this.toggleSliderComponent1.Name = "toggleSliderComponent1";
-            this.toggleSliderComponent1.Size = new System.Drawing.Size(284, 31);
-            this.toggleSliderComponent1.TabIndex = 0;
             this.toggleSliderComponent1.ToggleBarText = "Off";
             this.toggleSliderComponent1.ToggleCircleColor = System.Drawing.Color.White;
             this.toggleSliderComponent1.ToggleColorBar = System.Drawing.Color.Gray;
             this.toggleSliderComponent1.CheckChanged += new System.EventHandler(this.ToggleSliderComponent1_CheckChanged);
-          
             // 
-            // metroStyleManager1
+            // groupBox5
             // 
-            this.metroStyleManager1.Owner = this;
+            resources.ApplyResources(this.groupBox5, "groupBox5");
+            this.groupBox5.Controls.Add(this.metroLabel4);
+            this.groupBox5.Controls.Add(this.comboBox2);
+            this.groupBox5.ForeColor = System.Drawing.Color.White;
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.TabStop = false;
+            // 
+            // metroLabel4
+            // 
+            resources.ApplyResources(this.metroLabel4, "metroLabel4");
+            this.metroLabel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel4.ForeColor = System.Drawing.Color.White;
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.UseCustomBackColor = true;
+            this.metroLabel4.UseCustomForeColor = true;
+            this.metroLabel4.UseStyleColors = true;
+            // 
+            // comboBox2
+            // 
+            resources.ApplyResources(this.comboBox2, "comboBox2");
+            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            resources.GetString("comboBox2.AutoCompleteCustomSource"),
+            resources.GetString("comboBox2.AutoCompleteCustomSource1")});
+            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            this.comboBox2.ForeColor = System.Drawing.Color.White;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            resources.GetString("comboBox2.Items"),
+            resources.GetString("comboBox2.Items1")});
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.ComboBox2_SelectedIndexChanged);
+            // 
+            // panel2
+            // 
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Controls.Add(this.groupBox5);
+            this.panel2.Name = "panel2";
             // 
             // Settings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(584, 261);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Settings";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Settings";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.Settings_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -283,7 +259,9 @@ namespace SteamProfiles.Forms
             this.panel1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -304,6 +282,9 @@ namespace SteamProfiles.Forms
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox4;
         private ToggleSliderComponent toggleSliderComponent1;
-        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Panel panel2;
     }
 }

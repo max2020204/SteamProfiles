@@ -8,16 +8,16 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SteamProfiles")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("BlackDream")]
 [assembly: AssemblyProduct("SteamProfiles")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("SteamProfiles Copyright ©  2020  Maksym Nikitiuk")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // Установка значения False для параметра ComVisible делает типы в этой сборке невидимыми
 // для компонентов COM. Если необходимо обратиться к типу в этой сборке через
 // COM, следует установить атрибут ComVisible в TRUE для этого типа.
-[assembly: ComVisible(false)]
+[assembly: ComVisible(true)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
 [assembly: Guid("5bb48a2a-027b-4446-bb9a-b984cbb42af5")]

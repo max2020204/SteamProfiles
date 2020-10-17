@@ -8,18 +8,54 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
 
 namespace SteamProfiles
 {
+    // SteamProfiles Copyright (C) 2020  Maksym Nikitiuk
     public partial class SteamProfiles : Form
     {
+
+        ResourceManager res;
+        string SteamSettings, SuccessRemove;
         StyleSettings settings;
         public SteamProfiles()
         {
+          
+            Lang();
             InitializeComponent();
+        }
+
+        
+        void Switch_language()
+        {
+            SteamSettings = res.GetString("SteamSettings");
+            SuccessRemove = res.GetString("SuccessRemove");
+        }
+        void Lang()
+        {
+            using RegistryKey lang = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
+            if (lang.GetValue("Language") != null)
+            {
+                if (lang.GetValue("Language").ToString() == "English")
+                {
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+                }
+                else if (lang.GetValue("Language").ToString() == "Русский")
+                {
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru");
+                }
+            }
+            else
+            {
+                lang.SetValue("Language", "English");
+            }
         }
         void FlatApperence(Color MouseDownBackColor)
         {
@@ -41,7 +77,7 @@ namespace SteamProfiles
                 for (int j = 0; j < items.DropDownItems.Count; j++)
                 {
                     items.DropDownItems[j].BackColor = BackColor;
-                    ToolStripMenuItem DropedItems = items as ToolStripMenuItem;
+                    ToolStripMenuItem DropedItems = items;
                     if (DropedItems.DropDownItems.Count > 0)
                     {
                         for (int k = 0; k < DropedItems.DropDownItems.Count; k++)
@@ -58,8 +94,6 @@ namespace SteamProfiles
             showToolStripMenuItem.BackColor = BackColor;
             hideToolStripMenuItem.BackColor = BackColor;
         }
-
-
         bool ThemeMode()
         {
             using RegistryKey mode = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
@@ -107,6 +141,8 @@ namespace SteamProfiles
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            res = new ResourceManager("SteamProfiles.Resource.SteamProfiles.Res", typeof(Settings).Assembly);
+            Switch_language();
             if (!ThemeMode())
             {
                 gridmenustrip.Renderer = new ChangeMunuStripLight();
@@ -211,8 +247,6 @@ namespace SteamProfiles
             notifyIcon1.Visible = false;
             WindowState = FormWindowState.Normal;
         }
-
-
         private void Form1_Resize(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Minimized)
@@ -232,7 +266,7 @@ namespace SteamProfiles
             {
                 if (key.GetValue("SteamPath") == null)
                 {
-                    MessageBox.Show("Enter your Steam path");
+                    MessageBox.Show(SteamSettings);
                     new Settings().Show();
                 }
             }
@@ -265,8 +299,7 @@ namespace SteamProfiles
                             {
                                 metroGrid1.Rows[i].Cells["Password"].Value = new string('*', Encriptor.Decypter(k.GetValue(subvalues.Where(x => x.Contains("Password")).FirstOrDefault()).ToString()).Length);
                             }
-                            CreateSubMenu(Encriptor.Decypter(k.GetValue(subvalues.Where(x => x.Contains("UserName")).FirstOrDefault()).ToString()),
-                                Encriptor.Decypter(k.GetValue(subvalues.Where(x => x.Contains("Login")).FirstOrDefault()).ToString()),
+                            CreateSubMenu(Encriptor.Decypter(k.GetValue(subvalues.Where(x => x.Contains("Login")).FirstOrDefault()).ToString()),
                                 Encriptor.Decypter(k.GetValue(subvalues.Where(x => x.Contains("Password")).FirstOrDefault()).ToString()));
                         }
                     }
@@ -305,7 +338,7 @@ namespace SteamProfiles
                 }
             }
         }
-        void CreateSubMenu(string text, string login, string password)
+        void CreateSubMenu(string login, string password)
         {
             ToolStripMenuItem ToolStrip = new ToolStripMenuItem(login)
             {
@@ -335,6 +368,7 @@ namespace SteamProfiles
             ToolStrip.ForeColor = Color.White;
             ToolStrip.CheckOnClick = true;
             bool check = false;
+
             for (int i = 0; i < notifymenustrip.Items.Count; i++)
             {
                 if (notifymenustrip.Items[i].Text == ToolStrip.Text)
@@ -346,7 +380,7 @@ namespace SteamProfiles
             {
                 notifymenustrip.Items.Add(ToolStrip);
             }
-           
+
         }
         private void AddToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -369,7 +403,7 @@ namespace SteamProfiles
                 try
                 {
                     Registry.CurrentUser.DeleteSubKey($@"Software\SteamProfiles\{row.Cells[1].Value?.ToString().Replace(" ", "")}");
-                    MessageBox.Show("Removed Successfully");
+                    MessageBox.Show(SuccessRemove);
                 }
                 catch (Exception ex)
                 {
@@ -382,7 +416,7 @@ namespace SteamProfiles
                 catch (Exception)
                 {
                 }
-               
+
             }
         }
 
@@ -487,7 +521,6 @@ namespace SteamProfiles
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
             new AddProfile().Show();
         }
 
@@ -498,7 +531,6 @@ namespace SteamProfiles
 
         private void Button3_Click(object sender, EventArgs e)
         {
-
             new EditProfile().Show();
         }
 
@@ -601,10 +633,11 @@ namespace SteamProfiles
                     Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true).DeleteValue("Style");
                     metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                     metroGrid1.DefaultCellStyle.ForeColor = Color.White;
+                    metroGrid1.DefaultCellStyle.Font = new Font(metroGrid1.ColumnHeadersDefaultCellStyle.Font.FontFamily, 11f);
+                    metroGrid1.ColumnHeadersDefaultCellStyle.Font = new Font(metroGrid1.ColumnHeadersDefaultCellStyle.Font.FontFamily, 11f);
                 }
             }
         }
-
         private void RedToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Red;
@@ -619,8 +652,19 @@ namespace SteamProfiles
         {
             Updates();
             ThemeMode();
-
         }
+
+        private void Button4_Click_1(object sender, EventArgs e)
+        {
+            new About().Show();
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://boosty.to/blackdream");
+        }
+
+
     }
 }
 

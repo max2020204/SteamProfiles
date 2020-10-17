@@ -6,9 +6,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ToggleSlider;
@@ -17,11 +20,27 @@ namespace SteamProfiles.Forms
 {
     public partial class Settings : Form
     {
+        bool start = false;
+        ResourceManager res;
+        string AutoFindError, AutoFindResult, ToggleOff, ToggleOn, SteamPath, RestartRequired, RestartText;
+        string regestyLang;
+        readonly string[] standparh = new string[] { @"C:\Program Files (x86)", @"C:\Steam" };
         public Settings()
         {
+            SelectLanguage.Lang();
             InitializeComponent();
         }
 
+        void Switch_language()
+        {
+            AutoFindError = res.GetString("AutoFindError");
+            AutoFindResult = res.GetString("AutoFindResult");
+            ToggleOff = res.GetString("ToggleOff");
+            ToggleOn = res.GetString("ToggleOn");
+            SteamPath = res.GetString("SteamPath");
+            RestartRequired = res.GetString("RestartRequired");
+            RestartText = res.GetString("RestartText");
+        }
         private void Button1_Click(object sender, EventArgs e)
         {
             using OpenFileDialog openFileDialog = new OpenFileDialog
@@ -60,6 +79,8 @@ namespace SteamProfiles.Forms
 
         private void Settings_Load(object sender, EventArgs e)
         {
+            res = new ResourceManager("SteamProfiles.Resource.Settings.Res", typeof(Settings).Assembly);
+            Switch_language();
             ThemeMode();
             if (!Check())
             {
@@ -68,12 +89,24 @@ namespace SteamProfiles.Forms
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles"))
             {
                 textBox1.Text = key?.GetValue("SteamPath")?.ToString();
+                regestyLang = key?.GetValue("Language")?.ToString();
             }
             foreach (string drive in Directory.GetLogicalDrives())
             {
                 comboBox1.Items.Add(drive);
             }
             comboBox1.SelectedItem = comboBox1.Items[0];
+            if (regestyLang == "Русский")
+            {
+                comboBox2.SelectedItem = comboBox2.Items[1];
+                start = true;
+            }
+            else if (regestyLang == "English")
+            {
+                comboBox2.SelectedItem = comboBox2.Items[0];
+                start = true;
+            }
+
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
@@ -120,26 +153,48 @@ namespace SteamProfiles.Forms
         }
         private void Button2_Click(object sender, EventArgs e)
         {
+            bool spath = false;
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
                 List<string> files = new List<string>();
                 metroLabel3.Visible = true;
                 button1.Enabled = false;
                 button2.Enabled = false;
-                AddFiles(comboBox1.SelectedItem.ToString(), files);
-                foreach (var item in files)
+                if (comboBox1.SelectedItem.ToString() == @"C:\")
                 {
-                    if (item.Contains("steam.exe"))
+                    for (int i = 0; i < standparh.Length; i++)
                     {
-                        DialogResult result = MessageBox.Show($"This is the right path?\n{item}", "Steam path", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (result == DialogResult.Yes)
+                        AddFiles(standparh[i], files);
+                        foreach (var item in files)
                         {
-                            RegistrySetPath(item);
-                            textBox1.Text = item;
-                            button1.Enabled = true;
-                            button2.Enabled = true;
-                            metroLabel3.Visible = false;
-                            break;
+                            if (item.Contains("steam.exe"))
+                            {
+                                DialogResult result = MessageBox.Show($"{AutoFindResult}\n{item}", SteamPath, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                if (result == DialogResult.Yes)
+                                {
+                                    RegistrySetPath(item);
+                                    textBox1.Text = item;
+                                    spath = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                if (spath == false)
+                {
+                    AddFiles(comboBox1.SelectedItem.ToString(), files);
+                    foreach (var item in files)
+                    {
+                        if (item.Contains("steam.exe"))
+                        {
+                            DialogResult result = MessageBox.Show($"{AutoFindResult}\n{item}", SteamPath, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                RegistrySetPath(item);
+                                textBox1.Text = item;
+                                break;
+                            }
                         }
                     }
                 }
@@ -149,7 +204,7 @@ namespace SteamProfiles.Forms
             }
             else
             {
-                MessageBox.Show("Path has already been found");
+                MessageBox.Show(AutoFindError);
             }
         }
         private static void AddFiles(string path, IList<string> files)
@@ -179,16 +234,20 @@ namespace SteamProfiles.Forms
             if (key.GetValue("Mode")?.ToString() == "Dark")
             {
                 GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(45, 45, 45), Color.FromArgb(55, 55, 55));
-                toggleSliderComponent1.ToggleBarText = "On";
+                toggleSliderComponent1.ToggleBarText = ToggleOn;
                 toggleSliderComponent1.Checked = true;
                 BackColor = Color.FromArgb(28, 28, 28);
             }
             else if (key.GetValue("Mode")?.ToString() == "Light")
             {
                 GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(0, 0, 50), Color.FromArgb(0, 0, 75));
-                toggleSliderComponent1.ToggleBarText = "Off";
+                toggleSliderComponent1.ToggleBarText = ToggleOff;
                 toggleSliderComponent1.Checked = false;
                 BackColor = Color.FromArgb(0, 0, 50);
+            }
+            else
+            {
+                key.SetValue("Mode", "Light");
             }
         }
         private void ToggleSliderComponent1_CheckChanged(object sender, EventArgs e)
@@ -196,21 +255,35 @@ namespace SteamProfiles.Forms
             using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
             if (toggleSliderComponent1.Checked)
             {
-                toggleSliderComponent1.ToggleBarText = "On";
+                toggleSliderComponent1.ToggleBarText = ToggleOn;
                 GetAllControls.ThemeChange(toggleSliderComponent1.Checked, this, Color.FromArgb(45, 45, 45), Color.FromArgb(55, 55, 55));
                 BackColor = Color.FromArgb(45, 45, 45);
                 key.SetValue("Mode", "Dark");
             }
             else
             {
-                toggleSliderComponent1.ToggleBarText = "Off";
+                toggleSliderComponent1.ToggleBarText = ToggleOff;
                 GetAllControls.ThemeChange(toggleSliderComponent1.Checked, this, Color.FromArgb(0, 0, 50), Color.FromArgb(0, 0, 75));
                 BackColor = Color.FromArgb(0, 0, 50);
                 key.SetValue("Mode", "Light");
             }
         }
 
-
+        private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))
+            {
+                key.SetValue("Language", comboBox2.SelectedItem);
+            }
+            if (start)
+            {
+                DialogResult result = MessageBox.Show(RestartText, RestartRequired, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    Application.Restart();
+                }
+            }
+        }
     }
 }
 
