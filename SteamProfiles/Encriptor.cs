@@ -55,10 +55,11 @@ namespace SteamProfiles
                 string[] textnumber = tn.Split(' ');
                 string encn = "";
                 string[] keysp = kn.Split('-');
+                int k = 0;
                 for (int i = 0; i < textnumber.Length; i++)
                 {
                     string[] textsp = textnumber[i].Split('-');
-                    for (int j = 0, k = 0; j < textsp.Length; j++, k++)
+                    for (int j = 0; j < textsp.Length; j++, k++)
                     {
                         if (k >= keysp.Length)
                         {
@@ -141,10 +142,11 @@ namespace SteamProfiles
                 string[] textnumber = tn.Split(' ');
                 string encn = "";
                 string[] keysp = kn.Split('-');
+                int k = 0;
                 for (int i = 0; i < textnumber.Length; i++)
                 {
                     string[] textsp = textnumber[i].Split('-');
-                    for (int j = 0, k = 0; j < textsp.Length; j++, k++)
+                    for (int j = 0; j < textsp.Length; j++, k++)
                     {
                         if (k >= keysp.Length)
                         {

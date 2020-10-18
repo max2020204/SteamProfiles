@@ -21,35 +21,55 @@ namespace SteamProfiles
     // SteamProfiles Copyright (C) 2020  Maksym Nikitiuk
     public partial class SteamProfiles : Form
     {
-
         ResourceManager res;
-        string SteamSettings, SuccessRemove;
+        string SteamSettings, SuccessRemove, Dublicate;
         StyleSettings settings;
         public SteamProfiles()
         {
-          
             Lang();
+            Runing();
             InitializeComponent();
         }
-
-        
+        void Runing()
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))
+            {
+                if (key.GetValue("temp") == null)
+                {
+                    if (Process.GetProcesses().Count(x => x.ProcessName == "SteamProfiles") > 1)
+                    {
+                        MessageBox.Show(Dublicate);
+                        Process.GetCurrentProcess().Kill();
+                    }
+                }
+                else
+                {
+                    key?.DeleteValue("temp");
+                }
+            }
+        }
         void Switch_language()
         {
             SteamSettings = res.GetString("SteamSettings");
             SuccessRemove = res.GetString("SuccessRemove");
+            Dublicate = res.GetString("Dublicate");
+
         }
         void Lang()
         {
+            res = new ResourceManager("SteamProfiles.Resource.SteamProfiles.Res", typeof(SteamProfiles).Assembly);
             using RegistryKey lang = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
             if (lang.GetValue("Language") != null)
             {
                 if (lang.GetValue("Language").ToString() == "English")
                 {
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+                    Switch_language();
                 }
                 else if (lang.GetValue("Language").ToString() == "Русский")
                 {
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru");
+                    Switch_language();
                 }
             }
             else
@@ -139,10 +159,9 @@ namespace SteamProfiles
             }
             return false;
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            res = new ResourceManager("SteamProfiles.Resource.SteamProfiles.Res", typeof(Settings).Assembly);
-            Switch_language();
             if (!ThemeMode())
             {
                 gridmenustrip.Renderer = new ChangeMunuStripLight();
@@ -208,6 +227,7 @@ namespace SteamProfiles
                 this.WindowState = FormWindowState.Minimized;
                 notifyIcon1.Visible = true;
                 ShowInTaskbar = false;
+                ThemeMode();
                 Hide();
             }
         }
@@ -340,10 +360,17 @@ namespace SteamProfiles
         }
         void CreateSubMenu(string login, string password)
         {
+            string mode = "";
+            string steam = "";
             ToolStripMenuItem ToolStrip = new ToolStripMenuItem(login)
             {
                 Text = login
             };
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles"))
+            {
+                mode = key?.GetValue("Mode")?.ToString();
+                steam = key.GetValue("SteamPath").ToString();
+            }
             ToolStrip.Click += (s, a) =>
             {
                 ProcessStartInfo start = new ProcessStartInfo
@@ -354,17 +381,17 @@ namespace SteamProfiles
                 };
                 Process.Start(start);
                 Thread.Sleep(100);
-                string steam = "";
-                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles"))
-                {
-                    steam = key.GetValue("SteamPath").ToString();
-                }
+
                 Process p = new Process();
 
                 p.StartInfo.FileName = steam;
                 p.StartInfo.Arguments = $"-login {login} {password}";
                 p.Start();
             };
+            if (mode == "Dark")
+            {
+                ToolStrip.BackColor = Color.FromArgb(45, 45, 45);
+            }
             ToolStrip.ForeColor = Color.White;
             ToolStrip.CheckOnClick = true;
             bool check = false;
@@ -658,13 +685,6 @@ namespace SteamProfiles
         {
             new About().Show();
         }
-
-        private void Button7_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://boosty.to/blackdream");
-        }
-
-
     }
 }
 

@@ -117,13 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Dublicate" xml:space="preserve">
-    <value>App already running</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>346, 90</value>
   </data>
-  <data name="SteamSettings" xml:space="preserve">
-    <value>Enter your Steam path</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>SteamProfiles – это программка которая призвана помочь 
+вам с мульти-аккаунтами в Steam. 
+
+Зачем каждый раз заполнять пароли и логины если они 
+могут храниться в удобной для вас форме? Один раз записал
+ и больше не мучаешься.</value>
   </data>
-  <data name="SuccessRemove" xml:space="preserve">
-    <value>Successfully deleted</value>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 117</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>О программе</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 21</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Версия: </value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 26</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Автор: BlackDream</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 117</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 187</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Поддержать автора</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>354, 257</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>О программе</value>
   </data>
 </root>

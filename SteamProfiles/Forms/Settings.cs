@@ -129,6 +129,12 @@ namespace SteamProfiles.Forms
 
             }
         }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         bool Check()
         {
             using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
@@ -274,18 +280,21 @@ namespace SteamProfiles.Forms
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))
             {
                 key.SetValue("Language", comboBox2.SelectedItem);
-            }
-            if (start)
-            {
-                DialogResult result = MessageBox.Show(RestartText, RestartRequired, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+
+                if (start)
                 {
-                    Application.Restart();
+                    DialogResult result = MessageBox.Show(RestartText, RestartRequired, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        key.SetValue("temp", "1");
+                        Application.Restart();
+                    }
                 }
             }
         }
     }
 }
+
 
 
 
