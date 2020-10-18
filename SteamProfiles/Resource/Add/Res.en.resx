@@ -126,6 +126,9 @@
   <data name="PasswordError" xml:space="preserve">
     <value>Enter your Password in English</value>
   </data>
+  <data name="SteamSettings" xml:space="preserve">
+    <value>Enter your Steam path</value>
+  </data>
   <data name="Success" xml:space="preserve">
     <value>Added Successfully</value>
   </data>

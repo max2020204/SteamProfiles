@@ -16,7 +16,7 @@ namespace SteamProfiles.Forms
     public partial class AddProfile : Form
     {
         ResourceManager res;
-        private string UserNameError, LoginError, PasswordError, Success, FieldsError;
+        private string UserNameError, LoginError, PasswordError, Success, FieldsError, SteamSettings;
 
         public AddProfile()
         {
@@ -30,6 +30,7 @@ namespace SteamProfiles.Forms
             PasswordError = res.GetString("PasswordError");
             Success = res.GetString("Success");
             FieldsError = res.GetString("FieldsError");
+            SteamSettings = res.GetString("SteamSettings");
         }
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -85,6 +86,11 @@ namespace SteamProfiles.Forms
             using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
             if (key != null)
             {
+                if (key?.GetValue("SteamPath") == null)
+                {
+                    Close();
+                    SteamPath();
+                }
                 if (key.GetValue("Mode")?.ToString() == "Dark")
                 {
                     GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(45, 45, 45), Color.FromArgb(55, 55, 55));
@@ -94,6 +100,21 @@ namespace SteamProfiles.Forms
                 {
                     GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(0, 0, 80), Color.FromArgb(0, 0, 75));
                     button1.BackColor = Color.FromArgb(0, 0, 50);
+                }
+            }
+        }
+
+        private void SteamPath()
+        {
+            using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
+            if (key != null)
+            {
+                if (key.GetValue("SteamPath") == null)
+                {
+                    MessageBox.Show(SteamSettings);
+                    Settings s = new Settings();
+                    s.TopMost = true;
+                    s.Show();
                 }
             }
         }

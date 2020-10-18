@@ -73,7 +73,7 @@ namespace SteamProfiles
                 }
                 else
                 {
-                    Registry.CurrentUser.CreateSubKey(@"Software\SteamProfiles").SetValue("Language", "English"); 
+                    Registry.CurrentUser.CreateSubKey(@"Software\SteamProfiles").SetValue("Language", "English");
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
                     Switch_language();
                 }
@@ -181,18 +181,22 @@ namespace SteamProfiles
             Updates();
             notifyIcon1.Text = "SteamProfiles";
             notifyIcon1.Visible = true;
-            using RegistryKey style = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
-            if (style != null)
+            using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
+            if (key != null)
             {
-                if (style.GetValue("Style") != null)
+                if (key?.GetValue("SteamPath") == null)
                 {
-                    settings = JsonConvert.DeserializeObject<StyleSettings>(style.GetValue("Style").ToString());
+                    SteamPath();
+                }
+                if (key.GetValue("Style") != null)
+                {
+                    settings = JsonConvert.DeserializeObject<StyleSettings>(key.GetValue("Style").ToString());
                     metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(settings.HeaderTextColor.HeaderTextColorR, settings.HeaderTextColor.HeaderTextColorG, settings.HeaderTextColor.HeaderTextColorB);
                     metroGrid1.ColumnHeadersDefaultCellStyle.Font = settings.HeaderCellSize;
                     metroGrid1.DefaultCellStyle.ForeColor = Color.FromArgb(settings.CellTextColor.CellTextColorR, settings.CellTextColor.CellTextColorG, settings.CellTextColor.CellTextColorB);
                     metroGrid1.DefaultCellStyle.Font = settings.CellSize;
                 }
-                if (style.GetValue("Mode")?.ToString() == "Dark")
+                if (key.GetValue("Mode")?.ToString() == "Dark")
                 {
                     panel1.BackColor = Color.FromArgb(28, 28, 28);
                     button3.BackColor = Color.FromArgb(28, 28, 28);
@@ -206,7 +210,7 @@ namespace SteamProfiles
                     metroGrid1.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(55, 55, 55);
 
                 }
-                else if (style.GetValue("Mode")?.ToString() == "Light")
+                else if (key.GetValue("Mode")?.ToString() == "Light")
                 {
                     panel1.BackColor = Color.FromArgb(0, 0, 50);
                     button3.BackColor = Color.FromArgb(0, 0, 50);
@@ -289,7 +293,29 @@ namespace SteamProfiles
                 if (key.GetValue("SteamPath") == null)
                 {
                     MessageBox.Show(SteamSettings);
-                    new Settings().Show();
+                    Settings s = new Settings();
+                    s.TopMost = true;
+                    s.Show();
+                }
+            }
+        }
+        void CheckProfiles()
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles\"))
+            {
+                string[] subkeys = key.GetSubKeyNames();
+                if (subkeys.Length > 0)
+                {
+                    if (!button2.Enabled & !button3.Enabled)
+                    {
+                        button2.Enabled = true;
+                        button3.Enabled = true;
+                    }
+                }
+                else
+                {
+                    button2.Enabled = false;
+                    button3.Enabled = false;
                 }
             }
         }
@@ -300,6 +326,7 @@ namespace SteamProfiles
             using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles\");
             if (key != null)
             {
+
                 string[] subkeys = key.GetSubKeyNames();
                 if (subkeys.Length > 0)
                 {
@@ -680,6 +707,7 @@ namespace SteamProfiles
         private void SteamProfiles_Activated(object sender, EventArgs e)
         {
             Updates();
+            CheckProfiles();
             ThemeMode();
         }
 

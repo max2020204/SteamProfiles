@@ -126,6 +126,9 @@
   <data name="PasswordError" xml:space="preserve">
     <value>Пожалуйста, вводите Ваше пароль на английском языке</value>
   </data>
+  <data name="SteamSettings" xml:space="preserve">
+    <value>Укажите путь к Steam</value>
+  </data>
   <data name="Success" xml:space="preserve">
     <value>Ваш аккаунт успешно добавлен</value>
   </data>

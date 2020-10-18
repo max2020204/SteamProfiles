@@ -128,8 +128,8 @@
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
-  <data name="&gt;&gt;headerTextColorToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;toolStripMenuItem12.Name" xml:space="preserve">
+    <value>toolStripMenuItem12</value>
   </data>
   <data name="toolStripMenuItem2.Text" xml:space="preserve">
     <value>9</value>
@@ -218,8 +218,8 @@
   <data name="&gt;&gt;toolStripMenuItem13.Name" xml:space="preserve">
     <value>toolStripMenuItem13</value>
   </data>
-  <data name="celTextColorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
+  <data name="&gt;&gt;toolStripMenuItem17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cellsSizeToolStripMenuItem.Text" xml:space="preserve">
     <value>Cells Size</value>
@@ -229,6 +229,9 @@
   </data>
   <data name="button4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
+  </data>
+  <data name="&gt;&gt;yellowToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="resetToDefualtToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 22</value>
@@ -260,9 +263,6 @@
   <data name="&gt;&gt;redToolStripMenuItem1.Name" xml:space="preserve">
     <value>redToolStripMenuItem1</value>
   </data>
-  <data name="showToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 22</value>
-  </data>
   <data name="button5.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 498</value>
   </data>
@@ -290,14 +290,11 @@
   <data name="&gt;&gt;exitToolStripMenuItem.Name" xml:space="preserve">
     <value>exitToolStripMenuItem</value>
   </data>
-  <data name="button2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="&gt;&gt;yellowToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;showPasswordsToolStripMenuItem.Name" xml:space="preserve">
     <value>showPasswordsToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;yellowToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Password.HeaderText" xml:space="preserve">
     <value>Password</value>
@@ -356,14 +353,14 @@
   <data name="toolStripMenuItem15.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 22</value>
   </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;toolStripMenuItem15.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="settingsToolStripMenuItem1.Text" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="deleteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 22</value>
   </data>
   <data name="&gt;&gt;resetToDefualtToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -386,9 +383,6 @@
   <data name="&gt;&gt;colorDialog1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColorDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
   <data name="&gt;&gt;notifyIcon1.Name" xml:space="preserve">
     <value>notifyIcon1</value>
   </data>
@@ -396,6 +390,12 @@
     <value>14</value>
   </data>
   <data name="&gt;&gt;headerSizeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="addToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 22</value>
+  </data>
+  <data name="&gt;&gt;updateToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem9.Name" xml:space="preserve">
@@ -427,6 +427,9 @@
   </data>
   <data name="metroGrid1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11px</value>
+  </data>
+  <data name="celTextColorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Exit</value>
@@ -461,8 +464,8 @@
   <data name="&gt;&gt;editToolStripMenuItem1.Name" xml:space="preserve">
     <value>editToolStripMenuItem1</value>
   </data>
-  <data name="whiteToolStripMenuItem.Text" xml:space="preserve">
-    <value>White</value>
+  <data name="showToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 22</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem10.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -503,8 +506,8 @@
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>1050, 550</value>
   </data>
-  <data name="&gt;&gt;yellowToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -512,11 +515,8 @@
   <data name="&gt;&gt;notifymenustrip.Name" xml:space="preserve">
     <value>notifymenustrip</value>
   </data>
-  <data name="&gt;&gt;button5.Name" xml:space="preserve">
-    <value>button5</value>
-  </data>
-  <data name="&gt;&gt;colorDialog1.Name" xml:space="preserve">
-    <value>colorDialog1</value>
+  <data name="whiteToolStripMenuItem.Text" xml:space="preserve">
+    <value>White</value>
   </data>
   <data name="button3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 15.75pt</value>
@@ -529,6 +529,9 @@
   </data>
   <data name="&gt;&gt;redToolStripMenuItem.Name" xml:space="preserve">
     <value>redToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;addToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="button1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -557,8 +560,8 @@
   <data name="button4.Text" xml:space="preserve">
     <value>About</value>
   </data>
-  <data name="&gt;&gt;Open.Name" xml:space="preserve">
-    <value>Open</value>
+  <data name="&gt;&gt;button5.Name" xml:space="preserve">
+    <value>button5</value>
   </data>
   <data name="&gt;&gt;notifyIcon1.Type" xml:space="preserve">
     <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -590,6 +593,9 @@
   <data name="&gt;&gt;toolStripMenuItem5.Name" xml:space="preserve">
     <value>toolStripMenuItem5</value>
   </data>
+  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
   <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 22</value>
   </data>
@@ -605,8 +611,81 @@
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;addToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="notifyIcon1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA
+        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8E////LP///23///+n////1v//
+        //T///////////////P////V////pf///2r///8p////A////wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8E////Of///5b////h/////P//
+        /////////////////////////////////////////////P///97///+Q////NP///wP///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////Hf///4z////r////////
+        ///////////////////////////////////////////////////////////////////////n////gf//
+        /xj///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///zr////F////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////+////uv///y7///8A////AP///wD///8A////AP///wD///8A////AP///wD///9H////2///
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////0P///zn///8A////AP///wD///8A////AP///wD///8A////N///
+        /9n////////////////////2////uf///4r///+F////pf///+n/////////////////////////////
+        ////////////////////////////////////////////0P///y7///8A////AP///wD///8A////AP//
+        /xv////C////////////////////5////2X///8p////Xf///2f///80////P////8r/////////////
+        ////////////////////////////////////////////////////////////uP///xf///8A////AP//
+        /wD///8D////jv////////////////////v///9q////Pf///6L///+b////nP///8L///9o////Of//
+        /+L/////////////////////////////////////////////////////////////////////////fv//
+        /wH///8A////AP///z3////r////////////////////zP///xj///81////IP///wH///8A////N///
+        /8j///9B////kv//////////////////////////////////////////////////////////////////
+        ///////l////M////wD///8D////nP/////////+////4P///5f///87////Af///wD///8A////AP//
+        /wD///8A////m////3X///9m////////////////////////////////////////////////////////
+        //////////////////////+M////AP///zD////a////x////3P///8l////Av///wD///8A////AP//
+        /wD///8A////AP///wD///+Z////eP///yX///+5/////P//////////////////////////////////
+        /////////////////////////////////9r///8l////Nf///07///8R////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////NP///8b///9C////AP///xP///+E////7f//////////////////
+        ////////////////////////////////////////////+v///2X///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////KP///3b////A////bv///wP///8A////AP///wP///9M////0P//
+        ////////////////////////////////////////////////////////////nP///wD///8A////AP//
+        /wD///8A////AP///wD///8O////L////w////88////Zf///zT///8D////AP///wD///8A////AP//
+        /wD///8i////nf///+v////5///////////////////////////////////////////////O////AP//
+        /wD///8A////AP///wH///8e////Z////7v////s////vP///33///89////Af///wD///8A////AP//
+        /wD///8A////AP///wD///8J////LP///0r///+I////3f//////////////////////////////////
+        /+n///8A////AP///wj///86////i////9j////9/////////////////////////9////8x////AP//
+        /wD///8A////AP///wD///8A////Af///wj///8J////Av///wD///8w////u///////////////////
+        /////////////////xv///9Z////r////+7/////////////////////////////////////////////
+        /7H///8R////AP///wD///8A////AP///xj///95////tv///7v///+h////Qv///wD///8l////0P//
+        ////////////////////////////z/////r/////////////////////////////////////////////
+        /////////////P///3j///8A////AP///wD///8V////q////6n///9Q////QP///3b////I////Uf//
+        /wD///9h////+////////////////////+r////b////////////////////////////////////////
+        ////////////////////////////6P///0H///8A////AP///3H///+v////D////wD///8A////AP//
+        /1P///+9////Fv///xj////W////////////////////zv///7H/////////////////////////////
+        ////////////////////////////////////////////vf///xX///8C////qf///2H///8A////AP//
+        /wD///8A////DP///7b///9C////A////7j///////////////////+c////eP////3/////////////
+        ///////////////////////////////////////////////////////3////Q////wL///+v////Vv//
+        /wD///8A////AP///wD///8H////r////0j///8C////tP//////////////+v///2X///8u////4f//
+        //////////////////////////////////////////////////////////////////////9p////AP//
+        /4P///+W////BP///wD///8A////AP///zT////D////JP///xD////O///////////////a////Jf//
+        /wP///+d////////////////////////////////////////////////////////////////////////
+        /6j///8F////Jv///8L///9+////HP///w7///8+////uv///3v///8A////TP////X/////////////
+        /4z///8A////AP///z3////s////////////////////////////////////////////////////////
+        ////////////8v///1P///8A////M////6z////C////u////8H///9z////C////xD///+2////////
+        ///////n////Nf///wD///8A////A////4//////////////////////////////////////////////
+        ////////////////////////////2f///0b///8B////CP///yz///88////Fv///wD///8T////lP//
+        //z//////////////4P///8B////AP///wD///8A////Hv///8b/////////////////////////////
+        ////////////////////////////////////////////5////4L///8z////D////wf///8e////V///
+        /7v////8//////////////+5////F////wD///8A////AP///wD///8A////PP///93/////////////
+        /////////////////////////////////////////////////////////////v///+3////O////w///
+        /9/////6////////////////////0P///y////8A////AP///wD///8A////AP///wD///8A////Sf//
+        /93/////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////9P///89////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////Ov///8X/////////////////////////////////////////////////////////////
+        //////////////////////////////////7///+9////MP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////Hf///4z////r////////////////////////////////////////
+        ///////////////////////////////////////o////h////xj///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////BP///zv///+a////4P////z/////////////
+        //////////////////////////////////z////e////lv///zb///8C////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wT///8s////c///
+        /67////V////9P//////////////8v///9T///+s////cP///yn///8D////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A/4AB//4AAH/8AAA/+AAAH/AAAA/gAAAHwAAAA4AAAAGAEAABAPgAAQP4
+        AAAf8QAA/8GAAP4D4ADwB/AAwAfhAAADwIAAA4BAAAGOAAAAHgAAAB4AAACOAAAAAEGAAEABgAABAcAA
+        AAPgAAAH8AAAD/gAAB/8AAA//gAAf/+AAf8=
+</value>
   </data>
   <data name="&gt;&gt;button5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -628,6 +707,9 @@
   </data>
   <data name="toolStripMenuItem18.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 22</value>
+  </data>
+  <data name="&gt;&gt;colorDialog1.Name" xml:space="preserve">
+    <value>colorDialog1</value>
   </data>
   <data name="&gt;&gt;gridmenustrip.Name" xml:space="preserve">
     <value>gridmenustrip</value>
@@ -765,11 +847,11 @@
   <data name="button6.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
+  <data name="&gt;&gt;headerTextColorToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="toolStripMenuItem10.Text" xml:space="preserve">
     <value>22</value>
-  </data>
-  <data name="deleteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
   </data>
   <data name="resetToDefualtToolStripMenuItem.Text" xml:space="preserve">
     <value>Reset To Default</value>
@@ -807,8 +889,8 @@
   <data name="hideToolStripMenuItem.Text" xml:space="preserve">
     <value>Hide</value>
   </data>
-  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="button2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 15.75pt</value>
@@ -833,9 +915,6 @@
   </data>
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
-  </data>
-  <data name="&gt;&gt;redToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;button2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -909,7 +988,7 @@
   <data name="&gt;&gt;toolStripMenuItem19.Name" xml:space="preserve">
     <value>toolStripMenuItem19</value>
   </data>
-  <data name="&gt;&gt;updateToolStripMenuItem1.Type" xml:space="preserve">
+  <data name="&gt;&gt;redToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cellsSizeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
@@ -927,9 +1006,6 @@
   <data name="&gt;&gt;whiteToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="toolStripMenuItem9.Text" xml:space="preserve">
-    <value>20</value>
-  </data>
   <data name="redToolStripMenuItem.Text" xml:space="preserve">
     <value>Red</value>
   </data>
@@ -941,6 +1017,9 @@
   </data>
   <data name="&gt;&gt;deleteToolStripMenuItem.Name" xml:space="preserve">
     <value>deleteToolStripMenuItem</value>
+  </data>
+  <data name="redToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 22</value>
   </data>
   <data name="&gt;&gt;whiteToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -987,8 +1066,8 @@
   <data name="&gt;&gt;yellowToolStripMenuItem.Name" xml:space="preserve">
     <value>yellowToolStripMenuItem</value>
   </data>
-  <data name="addToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
+  <data name="toolStripMenuItem9.Text" xml:space="preserve">
+    <value>20</value>
   </data>
   <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 22</value>
@@ -1013,9 +1092,6 @@
   </data>
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem17.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;addToolStripMenuItem1.Name" xml:space="preserve">
     <value>addToolStripMenuItem1</value>
@@ -1053,9 +1129,6 @@
   <data name="pictureBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem12.Name" xml:space="preserve">
-    <value>toolStripMenuItem12</value>
-  </data>
   <data name="toolStripMenuItem13.Text" xml:space="preserve">
     <value>11</value>
   </data>
@@ -1085,6 +1158,9 @@
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 115</value>
+  </data>
+  <data name="button2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -1122,82 +1198,6 @@
   <data name="toolStripMenuItem7.Text" xml:space="preserve">
     <value>16</value>
   </data>
-  <data name="notifyIcon1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA
-        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8E////LP///23///+n////1v//
-        //T///////////////P////V////pf///2r///8p////A////wD///8A////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8E////Of///5b////h/////P//
-        /////////////////////////////////////////////P///97///+Q////NP///wP///8A////AP//
-        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////Hf///4z////r////////
-        ///////////////////////////////////////////////////////////////////////n////gf//
-        /xj///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///zr////F////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ///////+////uv///y7///8A////AP///wD///8A////AP///wD///8A////AP///wD///9H////2///
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////0P///zn///8A////AP///wD///8A////AP///wD///8A////N///
-        /9n////////////////////2////uf///4r///+F////pf///+n/////////////////////////////
-        ////////////////////////////////////////////0P///y7///8A////AP///wD///8A////AP//
-        /xv////C////////////////////5////2X///8p////Xf///2f///80////P////8r/////////////
-        ////////////////////////////////////////////////////////////uP///xf///8A////AP//
-        /wD///8D////jv////////////////////v///9q////Pf///6L///+b////nP///8L///9o////Of//
-        /+L/////////////////////////////////////////////////////////////////////////fv//
-        /wH///8A////AP///z3////r////////////////////zP///xj///81////IP///wH///8A////N///
-        /8j///9B////kv//////////////////////////////////////////////////////////////////
-        ///////l////M////wD///8D////nP/////////+////4P///5f///87////Af///wD///8A////AP//
-        /wD///8A////m////3X///9m////////////////////////////////////////////////////////
-        //////////////////////+M////AP///zD////a////x////3P///8l////Av///wD///8A////AP//
-        /wD///8A////AP///wD///+Z////eP///yX///+5/////P//////////////////////////////////
-        /////////////////////////////////9r///8l////Nf///07///8R////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A////NP///8b///9C////AP///xP///+E////7f//////////////////
-        ////////////////////////////////////////////+v///2X///8A////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A////KP///3b////A////bv///wP///8A////AP///wP///9M////0P//
-        ////////////////////////////////////////////////////////////nP///wD///8A////AP//
-        /wD///8A////AP///wD///8O////L////w////88////Zf///zT///8D////AP///wD///8A////AP//
-        /wD///8i////nf///+v////5///////////////////////////////////////////////O////AP//
-        /wD///8A////AP///wH///8e////Z////7v////s////vP///33///89////Af///wD///8A////AP//
-        /wD///8A////AP///wD///8J////LP///0r///+I////3f//////////////////////////////////
-        /+n///8A////AP///wj///86////i////9j////9/////////////////////////9////8x////AP//
-        /wD///8A////AP///wD///8A////Af///wj///8J////Av///wD///8w////u///////////////////
-        /////////////////xv///9Z////r////+7/////////////////////////////////////////////
-        /7H///8R////AP///wD///8A////AP///xj///95////tv///7v///+h////Qv///wD///8l////0P//
-        ////////////////////////////z/////r/////////////////////////////////////////////
-        /////////////P///3j///8A////AP///wD///8V////q////6n///9Q////QP///3b////I////Uf//
-        /wD///9h////+////////////////////+r////b////////////////////////////////////////
-        ////////////////////////////6P///0H///8A////AP///3H///+v////D////wD///8A////AP//
-        /1P///+9////Fv///xj////W////////////////////zv///7H/////////////////////////////
-        ////////////////////////////////////////////vf///xX///8C////qf///2H///8A////AP//
-        /wD///8A////DP///7b///9C////A////7j///////////////////+c////eP////3/////////////
-        ///////////////////////////////////////////////////////3////Q////wL///+v////Vv//
-        /wD///8A////AP///wD///8H////r////0j///8C////tP//////////////+v///2X///8u////4f//
-        //////////////////////////////////////////////////////////////////////9p////AP//
-        /4P///+W////BP///wD///8A////AP///zT////D////JP///xD////O///////////////a////Jf//
-        /wP///+d////////////////////////////////////////////////////////////////////////
-        /6j///8F////Jv///8L///9+////HP///w7///8+////uv///3v///8A////TP////X/////////////
-        /4z///8A////AP///z3////s////////////////////////////////////////////////////////
-        ////////////8v///1P///8A////M////6z////C////u////8H///9z////C////xD///+2////////
-        ///////n////Nf///wD///8A////A////4//////////////////////////////////////////////
-        ////////////////////////////2f///0b///8B////CP///yz///88////Fv///wD///8T////lP//
-        //z//////////////4P///8B////AP///wD///8A////Hv///8b/////////////////////////////
-        ////////////////////////////////////////////5////4L///8z////D////wf///8e////V///
-        /7v////8//////////////+5////F////wD///8A////AP///wD///8A////PP///93/////////////
-        /////////////////////////////////////////////////////////////v///+3////O////w///
-        /9/////6////////////////////0P///y////8A////AP///wD///8A////AP///wD///8A////Sf//
-        /93/////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////9P///89////AP///wD///8A////AP///wD///8A////AP//
-        /wD///8A////Ov///8X/////////////////////////////////////////////////////////////
-        //////////////////////////////////7///+9////MP///wD///8A////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A////Hf///4z////r////////////////////////////////////////
-        ///////////////////////////////////////o////h////xj///8A////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A////AP///wD///8A////BP///zv///+a////4P////z/////////////
-        //////////////////////////////////z////e////lv///zb///8C////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wT///8s////c///
-        /67////V////9P//////////////8v///9T///+s////cP///yn///8D////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A/4AB//4AAH/8AAA/+AAAH/AAAA/gAAAHwAAAA4AAAAGAEAABAPgAAQP4
-        AAAf8QAA/8GAAP4D4ADwB/AAwAfhAAADwIAAA4BAAAGOAAAAHgAAAB4AAACOAAAAAEGAAEABgAABAcAA
-        AAPgAAAH8AAAD/gAAB/8AAA//gAAf/+AAf8=
-</value>
-  </data>
   <data name="&gt;&gt;toolStripMenuItem10.Name" xml:space="preserve">
     <value>toolStripMenuItem10</value>
   </data>
@@ -1234,8 +1234,8 @@
   <data name="&gt;&gt;whiteToolStripMenuItem1.Name" xml:space="preserve">
     <value>whiteToolStripMenuItem1</value>
   </data>
-  <data name="redToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+  <data name="&gt;&gt;Open.Name" xml:space="preserve">
+    <value>Open</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem11.Name" xml:space="preserve">
     <value>toolStripMenuItem11</value>
@@ -1258,11 +1258,11 @@
   <metadata name="gridmenustrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>127, 27</value>
   </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>ru</value>
-  </metadata>
   <metadata name="UserName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>391, 30</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1278,8 +1278,5 @@
   </metadata>
   <metadata name="Password.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>391, 30</value>
   </metadata>
 </root>
