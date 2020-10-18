@@ -9,9 +9,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
@@ -58,23 +56,27 @@ namespace SteamProfiles
         void Lang()
         {
             res = new ResourceManager("SteamProfiles.Resource.SteamProfiles.Res", typeof(SteamProfiles).Assembly);
-            using RegistryKey lang = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
-            if (lang.GetValue("Language") != null)
+            using (RegistryKey lang = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))
             {
-                if (lang.GetValue("Language").ToString() == "English")
+                if (lang?.GetValue("Language") != null)
                 {
+                    if (lang.GetValue("Language").ToString() == "English")
+                    {
+                        Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+                        Switch_language();
+                    }
+                    else if (lang.GetValue("Language").ToString() == "Русский")
+                    {
+                        Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru");
+                        Switch_language();
+                    }
+                }
+                else
+                {
+                    Registry.CurrentUser.CreateSubKey(@"Software\SteamProfiles").SetValue("Language", "English"); 
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
                     Switch_language();
                 }
-                else if (lang.GetValue("Language").ToString() == "Русский")
-                {
-                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru");
-                    Switch_language();
-                }
-            }
-            else
-            {
-                lang.SetValue("Language", "English");
             }
         }
         void FlatApperence(Color MouseDownBackColor)
