@@ -41,8 +41,8 @@
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.label1);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
@@ -54,9 +54,9 @@
             // 
             // groupBox2
             // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;

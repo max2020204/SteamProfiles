@@ -210,7 +210,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="32white.ico" />
-    <Content Include="ToggleSlider.dll" />
+    <Content Include="ToggleSlider.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
