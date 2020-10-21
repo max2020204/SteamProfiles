@@ -1,20 +1,26 @@
 ﻿using MetroFramework.Controls;
 using MetroFramework.Forms;
 using Microsoft.Win32;
+using Octokit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
+using System.Net;
+using System.Reflection;
 using System.Resources;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ToggleSlider;
+using Application = System.Windows.Forms.Application;
 
 namespace SteamProfiles.Forms
 {
@@ -22,7 +28,9 @@ namespace SteamProfiles.Forms
     {
         bool start = false;
         ResourceManager res;
-        string AutoFindError, AutoFindResult, ToggleOff, ToggleOn, SteamPath, RestartRequired, RestartText;
+        string AutoFindError, AutoFindResult, ToggleOff, ToggleOn, SteamPath,
+            RestartRequired, RestartText, LastVersion, NewVersion, NewVersionAsk,
+            CurrentVersion, End;
         string regestyLang;
         readonly string[] standparh = new string[] { @"C:\Program Files (x86)", @"C:\Steam" };
         public Settings()
@@ -40,6 +48,11 @@ namespace SteamProfiles.Forms
             SteamPath = res.GetString("SteamPath");
             RestartRequired = res.GetString("RestartRequired");
             RestartText = res.GetString("RestartText");
+            LastVersion = res.GetString("LastVersion");
+            NewVersion = res.GetString("NewVersion");
+            NewVersionAsk = res.GetString("NewVersionAsk");
+            CurrentVersion = res.GetString("CurrentVersion");
+            End = res.GetString("End");
         }
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -79,6 +92,7 @@ namespace SteamProfiles.Forms
 
         private void Settings_Load(object sender, EventArgs e)
         {
+
             res = new ResourceManager("SteamProfiles.Resource.Settings.Res", typeof(Settings).Assembly);
             Switch_language();
             ThemeMode();
@@ -118,7 +132,7 @@ namespace SteamProfiles.Forms
             using RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
             if (isChecked)
             {
-                registryKey.SetValue("SteamProfiles", Application.ExecutablePath + " -silent");
+                registryKey.SetValue("SteamProfiles", System.Windows.Forms.Application.ExecutablePath + " -silent");
             }
             else
             {
@@ -129,10 +143,51 @@ namespace SteamProfiles.Forms
 
             }
         }
-
-        private void groupBox5_Enter(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
+            CheckUpdate();
+        }
+        async void CheckUpdate()
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            string version = fvi.ProductVersion;
+            GitHubClient github = new GitHubClient(new ProductHeaderValue("SteamProfiles"));
+            var user = await github.Repository.Release.GetAll("max2020204", "SteamProfiles");
+            string tag = user[0].TagName;
+            switch (tag.CompareTo(version))
+            {
+                case 0:
+                    MessageBox.Show(LastVersion + " " + version);
+                    break;
+                case 1:
+                    DialogResult result = MessageBox.Show($"{NewVersionAsk} {tag} {End}\n{CurrentVersion} {version}", NewVersion, MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        string addres = $@"https://github.com/max2020204/SteamProfiles/releases/download/{tag}/SteamProfiles-{tag}.zip";
+                        using (WebClient web = new WebClient())
+                        {
 
+                            web.DownloadFile(addres, $"SteamProfiles-{tag}.zip");
+                            using (ZipArchive zip = ZipFile.OpenRead($"SteamProfiles-{tag}.zip"))
+                            {
+                                zip.ExtractToDirectory("SteamProfiles");
+                            }
+                        }
+                        File.Delete($"SteamProfiles-{tag}.zip");
+                        using (StreamWriter sw = new StreamWriter("update.bat"))
+                        {
+                            sw.WriteLine("taskkill /F /IM SteamProfiles.exe");
+                            sw.WriteLine(@"Xcopy %cd%\SteamProfiles %cd%  /E /H /C /I");
+                            sw.WriteLine("RMDIR SteamProfiles /S /Q");
+                            sw.WriteLine("start SteamProfiles.exe");
+                        }
+                        Process process = Process.Start("update.bat");
+                        process.WaitForExit();
+
+                    }
+                    break;
+            }
         }
 
         bool Check()

@@ -293,8 +293,10 @@ namespace SteamProfiles
                 if (key.GetValue("SteamPath") == null)
                 {
                     MessageBox.Show(SteamSettings);
-                    Settings s = new Settings();
-                    s.TopMost = true;
+                    Settings s = new Settings
+                    {
+                        TopMost = true
+                    };
                     s.Show();
                 }
             }
@@ -393,7 +395,8 @@ namespace SteamProfiles
             string steam = "";
             ToolStripMenuItem ToolStrip = new ToolStripMenuItem(login)
             {
-                Text = login
+                Text = login,
+                Tag = login
             };
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles"))
             {
@@ -408,11 +411,11 @@ namespace SteamProfiles
                     FileName = "cmd",
                     Arguments = "/c taskkill /F /IM Steam.exe"
                 };
-                Process.Start(start);
-                Thread.Sleep(100);
+                Process pros = Process.Start(start);
+                pros.WaitForExit();
+                Thread.Sleep(500);
 
                 Process p = new Process();
-
                 p.StartInfo.FileName = steam;
                 p.StartInfo.Arguments = $"-login {login} {password}";
                 p.Start();
@@ -458,20 +461,26 @@ namespace SteamProfiles
             {
                 try
                 {
-                    Registry.CurrentUser.DeleteSubKey($@"Software\SteamProfiles\{row.Cells[1].Value?.ToString().Replace(" ", "")}");
-                    MessageBox.Show(SuccessRemove);
+                    if (row.Cells[1].Value != null)
+                    {
+                        Registry.CurrentUser.DeleteSubKey($@"Software\SteamProfiles\{row.Cells[1].Value?.ToString()}");
+                        foreach (ToolStripMenuItem item in notifymenustrip.Items)
+                        {
+                            if ((string)item.Tag == row.Cells[1].Value?.ToString())
+                            {
+                                notifymenustrip.Items.Remove(item);
+                                break;
+                            }
+                        }
+                        MessageBox.Show(SuccessRemove);
+
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                try
-                {
-                    metroGrid1.Rows.Remove(row);
-                }
-                catch (Exception)
-                {
-                }
+
 
             }
         }

@@ -36,37 +36,30 @@ namespace SteamProfiles.Forms
         {
             if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
             {
-                using (RegistryKey key = Registry.CurrentUser.CreateSubKey($@"Software\SteamProfiles\{textBox2.Text}"))
+                string user = textBox1.Text, login = textBox2.Text, pass = textBox3.Text;
+                if (textBox1.Text.Contains(' '))
+                    user = textBox1.Text.Replace(" ","");
+                if (textBox2.Text.Contains(' '))
+                    login = textBox2.Text.Replace(" ", "");
+                if (textBox3.Text.Contains(' '))
+                    pass = textBox3.Text.Replace(" ", "");
+                using (RegistryKey key = Registry.CurrentUser.CreateSubKey($@"Software\SteamProfiles\{login}"))
                 {
-                    string user = Encriptor.Encypter(textBox1.Text);
-                    string login = Encriptor.Encypter(textBox2.Text);
-                    string pass = Encriptor.Encypter(textBox3.Text);
+                    user = Encriptor.Encypter(user);
+                    login = Encriptor.Encypter(login);
+                    pass = Encriptor.Encypter(pass);
                     if (user != "")
-                    {
                         key.SetValue("UserName", user);
-
-                    }
                     else
-                    {
                         MessageBox.Show(UserNameError);
-                    }
                     if (login != "")
-                    {
                         key.SetValue("Login", login);
-                    }
                     else
-                    {
                         MessageBox.Show(LoginError);
-                    }
                     if (pass != "")
-                    {
                         key.SetValue("Password", pass);
-                    }
                     else
-                    {
                         MessageBox.Show(PasswordError);
-                    }
-
                 }
                 textBox1.Clear();
                 textBox2.Clear();

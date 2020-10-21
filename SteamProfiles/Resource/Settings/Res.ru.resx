@@ -123,6 +123,21 @@
   <data name="AutoFindResult" xml:space="preserve">
     <value>Это правильный путь?</value>
   </data>
+  <data name="CurrentVersion" xml:space="preserve">
+    <value>Текущая версия:</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>?</value>
+  </data>
+  <data name="LastVersion" xml:space="preserve">
+    <value>Вы используете последнюю версию: </value>
+  </data>
+  <data name="NewVersion" xml:space="preserve">
+    <value>Доступна новая версия!</value>
+  </data>
+  <data name="NewVersionAsk" xml:space="preserve">
+    <value>Вы хотите обновить свою программу до версии</value>
+  </data>
   <data name="RestartRequired" xml:space="preserve">
     <value>Требуется перезапуск</value>
   </data>
