@@ -20,7 +20,7 @@
 </p>
 <h1>Arguments</h1>
 <p>
--silent <br>
+  <strong>-silent <br></strong>
 &nbsp;&nbsp;&nbsp;Auto-minimize to tray when opened
 </p>
 <h1>Bugs</h1>
