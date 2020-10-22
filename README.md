@@ -13,9 +13,10 @@
 <li> <a href="https://dotnet.microsoft.com//download/dotnet-framework/thank-you/net472-web-installer">Download</a> & Install [.NET Framework 4.7.2]</li>
 <li> Visit <a href="https://github.com/max2020204/SteamProfiles/releases/latest">the releases page</a> and download the latest .zip (not the source code one).</li>
 <li> Extract the files somewhere on your computer</li>
-<li> Add your steam path in settings, or use the automatic steam path finder by selecting the steam drive where steam is located</li>
+<li> Add your steam path in settings, or use the automatic pathfinder by selecting the disk drive where steam is located</li>
 <li> Add your account </li>
-<li> In the tray you will see the program icon when you right-click you can select your accounts</li>
+<li> This program is hiding in a tray, you can see the icon of SteamProfiles there</li>
+<li> To select your account simply right click on it and choose your desired account</li>
 </ul>
 </p>
 <h1>Arguments</h1>
@@ -31,5 +32,6 @@
 <li>Click New issue</li>
 <li> Select Bug report and click Get started</li>
 <li> Describe the bug</li>
+<li> Click Submit new issue</li>
 </ol>
 </p>
