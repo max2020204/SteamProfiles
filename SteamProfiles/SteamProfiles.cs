@@ -22,7 +22,7 @@ namespace SteamProfiles
         ResourceManager res;
         string SteamSettings, SuccessRemove, Dublicate;
         StyleSettings settings;
-        public SteamProfiles()
+       public SteamProfiles()
         {
             Lang();
             Runing();
@@ -418,7 +418,7 @@ namespace SteamProfiles
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles"))
             {
                 mode = key?.GetValue("Mode")?.ToString();
-                steam = key.GetValue("SteamPath").ToString();
+                steam = key?.GetValue("SteamPath")?.ToString();
             }
             ToolStrip.Click += (s, a) =>
             {
@@ -437,11 +437,23 @@ namespace SteamProfiles
                 p.StartInfo.Arguments = $"-login {login} {password}";
                 p.Start();
             };
-            if (mode == "Dark")
+            switch (mode)
             {
-                ToolStrip.BackColor = Color.FromArgb(45, 45, 45);
+                case "Dark":
+                    ToolStrip.BackColor = Color.FromArgb(45, 45, 45);
+                    ToolStrip.ForeColor = Color.White;
+                    break; 
+                case "Light":
+                    ToolStrip.BackColor = Color.FromArgb(166, 177, 183);
+                    ToolStrip.ForeColor = Color.Black;
+                    break;
+                case "OldSchool":
+                    ToolStrip.BackColor = Color.FromArgb(0, 0, 80);
+                    ToolStrip.ForeColor = Color.White;
+                    break;
+                default:
+                    break;
             }
-            ToolStrip.ForeColor = Color.White;
             ToolStrip.CheckOnClick = true;
             bool check = false;
 

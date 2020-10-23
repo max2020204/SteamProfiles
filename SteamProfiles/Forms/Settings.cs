@@ -1,25 +1,18 @@
-﻿using MetroFramework.Controls;
-using MetroFramework.Forms;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using Octokit;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Reflection;
 using System.Resources;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Application = System.Windows.Forms.Application;
 
 namespace SteamProfiles.Forms
 {
@@ -29,8 +22,8 @@ namespace SteamProfiles.Forms
         bool start = false;
         ResourceManager res;
         string AutoFindError, AutoFindResult, SteamPath,
-        RestartRequired, RestartText, LastVersion, NewVersion, 
-        NewVersionAsk,CurrentVersion, End,Dark,Light,OldSchool;
+        RestartRequired, RestartText, LastVersion, NewVersion,
+        NewVersionAsk, CurrentVersion, End, Dark, Light, OldSchool;
         readonly string[] standparh = new string[] { @"C:\Program Files (x86)", @"C:\Steam" };
         public Settings()
         {
@@ -124,7 +117,7 @@ namespace SteamProfiles.Forms
                             }
                         }
                     }
-                   
+
                 }
             }
         }
@@ -139,8 +132,8 @@ namespace SteamProfiles.Forms
         }
         void ComboboxSlection()
         {
-            
-           
+
+
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles"))
             {
                 textBox1.Text = key?.GetValue("SteamPath")?.ToString();
@@ -152,7 +145,7 @@ namespace SteamProfiles.Forms
                         Theme.SelectedItem = item.Key;
                         break;
                     }
-                }      
+                }
             }
         }
         private void Settings_Load(object sender, EventArgs e)
@@ -275,38 +268,40 @@ namespace SteamProfiles.Forms
                 {
                     for (int i = 0; i < standparh.Length; i++)
                     {
-                        AddFiles(standparh[i], files);
+                        files = GetAllAccessibleFiles(standparh[i], "steam.exe");
                         foreach (var item in files)
-                        {
-                            if (item.Contains("steam.exe"))
-                            {
-                                DialogResult result = MessageBox.Show($"{AutoFindResult}\n{item}", SteamPath, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                                if (result == DialogResult.Yes)
-                                {
-                                    RegistrySetPath(item);
-                                    textBox1.Text = item;
-                                    spath = true;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-                if (spath == false)
-                {
-                    AddFiles(comboBox1.SelectedItem.ToString(), files);
-                    foreach (var item in files)
-                    {
-                        if (item.Contains("steam.exe"))
                         {
                             DialogResult result = MessageBox.Show($"{AutoFindResult}\n{item}", SteamPath, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (result == DialogResult.Yes)
                             {
                                 RegistrySetPath(item);
                                 textBox1.Text = item;
+                                spath = true;
                                 break;
                             }
+                            if (result == DialogResult.No)
+                            {
+                                if (files.Count == 1)
+                                {
+                                    spath = true;
+                                }
+                            }
+
                         }
+                    }
+                }
+                if (spath == false)
+                {
+                    foreach (var item in GetAllAccessibleFiles(comboBox1.SelectedItem.ToString(), "steam.exe"))
+                    {
+                        DialogResult result = MessageBox.Show($"{AutoFindResult}\n{item}", SteamPath, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            RegistrySetPath(item);
+                            textBox1.Text = item;
+                            break;
+                        }
+
                     }
                 }
                 button1.Enabled = true;
@@ -318,27 +313,59 @@ namespace SteamProfiles.Forms
                 MessageBox.Show(AutoFindError);
             }
         }
-        private static void AddFiles(string path, IList<string> files)
+        public static List<string> GetAllAccessibleFiles(string rootPath, string patern, List<string> alreadyFound = null)
         {
-            var t = Task.Run(() =>
+            patern = patern.ToUpper();
+            if (alreadyFound == null)
+                alreadyFound = new List<string>();
+            try
             {
-                try
+                DirectoryInfo di = new DirectoryInfo(rootPath);
+                var dirs = di.EnumerateDirectories();
+                foreach (DirectoryInfo dir in dirs)
                 {
-                    Directory.GetFiles(path)
-                        .ToList()
-                        .ForEach(s => files.Add(s));
-
-                    Directory.GetDirectories(path)
-                        .ToList()
-                        .ForEach(s => AddFiles(s, files));
+                    if (!((dir.Attributes & FileAttributes.Hidden) == FileAttributes.Hidden))
+                    {
+                        alreadyFound = GetAllAccessibleFiles(dir.FullName, patern, alreadyFound);
+                    }
                 }
-                catch (UnauthorizedAccessException)
+                var files = Directory.GetFiles(rootPath).Where(x => x.IndexOf(patern, StringComparison.CurrentCultureIgnoreCase) != -1);
+                foreach (string s in files)
                 {
-
+                    alreadyFound.Add(s);
                 }
-            });
-            t.Wait();
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (DirectoryNotFoundException dir)
+            {
+                Console.WriteLine(dir.Message);
+            }
+            return alreadyFound;
         }
+        //private static void AddFiles(string path, IList<string> files)
+        //{
+        //    var t = Task.Run(() =>
+        //    {
+        //        try
+        //        {
+        //            Directory.GetFiles(path)
+        //                .ToList()
+        //                .ForEach(s => files.Add(s));
+
+        //            Directory.GetDirectories(path)
+        //                .ToList()
+        //                .ForEach(s => AddFiles(s, files));
+        //        }
+        //        catch (UnauthorizedAccessException)
+        //        {
+
+        //        }
+        //    });
+        //    t.Wait();
+        //}
         void ThemeMode()
         {
             using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
@@ -376,7 +403,7 @@ namespace SteamProfiles.Forms
                     if (result == DialogResult.Yes)
                     {
                         key.SetValue("temp", "1");
-                        Application.Restart();
+                        System.Windows.Forms.Application.Restart();
                     }
                 }
             }
