@@ -19,7 +19,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ToggleSlider;
 using Application = System.Windows.Forms.Application;
 
 namespace SteamProfiles.Forms

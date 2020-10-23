@@ -1,6 +1,4 @@
-﻿using ToggleSlider;
-
-namespace SteamProfiles.Forms
+﻿namespace SteamProfiles.Forms
 {
     partial class Settings
     {
