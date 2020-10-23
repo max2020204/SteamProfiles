@@ -34,21 +34,15 @@ namespace SteamProfiles.Forms
                 {
                     case "Dark":
                         Themes.ThemeChange(mode: true, this, Color.FromArgb(45, 45, 45), Color.FromArgb(28, 28, 28), Color.FromArgb(55, 55, 55));
-                        label1.ForeColor = Color.White;
-                        label2.ForeColor = Color.White;
-                        label3.ForeColor = Color.White;
+                        Themes.ChangeForeColor(true, this, Color.White);
                         break;
                     case "Light":
                         Themes.ThemeChange(mode: true, form: this, backcolor: Color.FromArgb(189, 204, 212), buttoncolor: Color.FromArgb(166, 177, 183),MouseDownBackColor: Color.FromArgb(55, 55, 55));
-                        label1.ForeColor = Color.Black;
-                        label2.ForeColor = Color.Black;
-                        label3.ForeColor = Color.Black;
+                        Themes.ChangeForeColor(true, this, Color.Black);
                         break;
                     case "OldSchool":
                         Themes.ThemeChange(mode: true, this, Color.FromArgb(0, 0, 80), Color.FromArgb(0, 0, 50), Color.FromArgb(0, 0, 75));
-                        label1.ForeColor = Color.White;
-                        label2.ForeColor = Color.White;
-                        label3.ForeColor = Color.White;
+                        Themes.ChangeForeColor(true, this, Color.White);
                         break;
                 }
             }

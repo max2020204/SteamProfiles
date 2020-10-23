@@ -229,7 +229,7 @@ namespace SteamProfiles.Forms
                         using (StreamWriter sw = new StreamWriter("update.bat"))
                         {
                             sw.WriteLine("taskkill /F /IM SteamProfiles.exe");
-                            sw.WriteLine(@"Xcopy %cd%\SteamProfiles %cd%  /E /H /C /I");
+                            sw.WriteLine(@"Xcopy %cd%\SteamProfiles %cd%  /E /H /C /I /Y /L");
                             sw.WriteLine("RMDIR SteamProfiles /S /Q");
                             sw.WriteLine("start SteamProfiles.exe");
                         }
