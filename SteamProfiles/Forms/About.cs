@@ -30,15 +30,26 @@ namespace SteamProfiles.Forms
             using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
             if (key != null)
             {
-                if (key.GetValue("Mode")?.ToString() == "Dark")
+                switch (key.GetValue("Mode")?.ToString())
                 {
-                    GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(45, 45, 45), Color.FromArgb(55, 55, 55));
-                    // button1.BackColor = Color.FromArgb(28, 28, 28);
-                }
-                else if (key.GetValue("Mode")?.ToString() == "Light")
-                {
-                    GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(0, 0, 80), Color.FromArgb(0, 0, 75));
-                   //  button1.BackColor = Color.FromArgb(0, 0, 50);
+                    case "Dark":
+                        Themes.ThemeChange(mode: true, this, Color.FromArgb(45, 45, 45), Color.FromArgb(28, 28, 28), Color.FromArgb(55, 55, 55));
+                        label1.ForeColor = Color.White;
+                        label2.ForeColor = Color.White;
+                        label3.ForeColor = Color.White;
+                        break;
+                    case "Light":
+                        Themes.ThemeChange(mode: true, form: this, backcolor: Color.FromArgb(189, 204, 212), buttoncolor: Color.FromArgb(166, 177, 183),MouseDownBackColor: Color.FromArgb(55, 55, 55));
+                        label1.ForeColor = Color.Black;
+                        label2.ForeColor = Color.Black;
+                        label3.ForeColor = Color.Black;
+                        break;
+                    case "OldSchool":
+                        Themes.ThemeChange(mode: true, this, Color.FromArgb(0, 0, 80), Color.FromArgb(0, 0, 50), Color.FromArgb(0, 0, 75));
+                        label1.ForeColor = Color.White;
+                        label2.ForeColor = Color.White;
+                        label3.ForeColor = Color.White;
+                        break;
                 }
             }
         }

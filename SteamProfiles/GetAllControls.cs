@@ -22,32 +22,6 @@ namespace SteamProfiles
             }
             return controlList;
         }
-        public static void ThemeChange(bool mode, Control form, Color backcolor, Color MouseDownBackColor)
-        {
-            List<Control> availControls = GetAllControls.GetControls(form);
-            if (mode)
-            {
-                foreach (var item in availControls)
-                {
-                    item.BackColor = backcolor;
-                    if (item is Button button)
-                    {
-                        button.FlatAppearance.MouseDownBackColor = MouseDownBackColor;
-                    }
-                }
-            }
-            else
-            {
-                foreach (var item in availControls)
-                {
-                    item.BackColor = backcolor;
-                    if (item is Button button)
-                    {
-                        button.FlatAppearance.MouseDownBackColor = MouseDownBackColor;
-                    }
-                }
-            }
-
-        }
+        
     }
 }

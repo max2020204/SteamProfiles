@@ -38,7 +38,7 @@ namespace SteamProfiles.Forms
             {
                 string user = textBox1.Text, login = textBox2.Text, pass = textBox3.Text;
                 if (textBox1.Text.Contains(' '))
-                    user = textBox1.Text.Replace(" ","");
+                    user = textBox1.Text.Replace(" ", "");
                 if (textBox2.Text.Contains(' '))
                     login = textBox2.Text.Replace(" ", "");
                 if (textBox3.Text.Contains(' '))
@@ -84,15 +84,20 @@ namespace SteamProfiles.Forms
                     Close();
                     SteamPath();
                 }
-                if (key.GetValue("Mode")?.ToString() == "Dark")
+                switch (key.GetValue("Mode")?.ToString())
                 {
-                    GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(45, 45, 45), Color.FromArgb(55, 55, 55));
-                    button1.BackColor = Color.FromArgb(28, 28, 28);
-                }
-                else if (key.GetValue("Mode")?.ToString() == "Light")
-                {
-                    GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(0, 0, 80), Color.FromArgb(0, 0, 75));
-                    button1.BackColor = Color.FromArgb(0, 0, 50);
+                    case "Dark":
+                        Themes.ThemeChange(mode: true, this, Color.FromArgb(45, 45, 45), Color.FromArgb(35, 35, 35), Color.FromArgb(55, 55, 55));
+                        Themes.ChangeForeColor(true, this, Color.White);
+                        break;
+                    case "Light":
+                        Themes.ThemeChange(mode: true, form: this, backcolor: Color.FromArgb(189, 204, 212), buttoncolor: Color.FromArgb(166, 177, 183), MouseDownBackColor: Color.FromArgb(55, 55, 55));
+                        Themes.ChangeForeColor(true, this, Color.Black);
+                        break;
+                    case "OldSchool":
+                        Themes.ThemeChange(mode: true, this, Color.FromArgb(0, 0, 80), Color.FromArgb(0, 0, 50), Color.FromArgb(0, 0, 75));
+                        Themes.ChangeForeColor(true, this, Color.White);
+                        break;
                 }
             }
         }

@@ -50,7 +50,7 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>32white.ico</ApplicationIcon>
+    <ApplicationIcon>Steam.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -98,8 +98,10 @@
   <ItemGroup>
     <Compile Include="ChangeMenuStrip\ChangeHoverColorDark.cs" />
     <Compile Include="ChangeMenuStrip\ChangeHoverColorLight.cs" />
+    <Compile Include="ChangeMenuStrip\ChangeHoverColorOldSchool.cs" />
     <Compile Include="ChangeMenuStrip\ChangeMunuStripDark.cs" />
     <Compile Include="ChangeMenuStrip\ChangeMunuStripLight.cs" />
+    <Compile Include="ChangeMenuStrip\ChangeMunuStripOldSchool.cs" />
     <Compile Include="Encriptor.cs" />
     <Compile Include="Forms\About.cs">
       <SubType>Form</SubType>
@@ -146,6 +148,7 @@
     <Compile Include="Json\StyleSettings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Themes.cs" />
     <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +198,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SteamProfiles.ru.resx">
       <DependentUpon>SteamProfiles.cs</DependentUpon>
@@ -214,7 +218,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="32white.ico" />
+    <None Include="Resources\Artboard 1.png" />
+    <Content Include="Steam.ico" />
     <Content Include="ToggleSlider.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

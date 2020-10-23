@@ -26,25 +26,24 @@ namespace SteamProfiles.Forms
 {
     public partial class Settings : Form
     {
+        Dictionary<string, string> lang = new Dictionary<string, string>();
         bool start = false;
         ResourceManager res;
-        string AutoFindError, AutoFindResult, ToggleOff, ToggleOn, SteamPath,
-            RestartRequired, RestartText, LastVersion, NewVersion, NewVersionAsk,
-            CurrentVersion, End;
-        string regestyLang;
+        string AutoFindError, AutoFindResult, SteamPath,
+        RestartRequired, RestartText, LastVersion, NewVersion, 
+        NewVersionAsk,CurrentVersion, End,Dark,Light,OldSchool;
         readonly string[] standparh = new string[] { @"C:\Program Files (x86)", @"C:\Steam" };
         public Settings()
         {
             SelectLanguage.Lang();
             InitializeComponent();
+
         }
 
         void Switch_language()
         {
             AutoFindError = res.GetString("AutoFindError");
             AutoFindResult = res.GetString("AutoFindResult");
-            ToggleOff = res.GetString("ToggleOff");
-            ToggleOn = res.GetString("ToggleOn");
             SteamPath = res.GetString("SteamPath");
             RestartRequired = res.GetString("RestartRequired");
             RestartText = res.GetString("RestartText");
@@ -53,6 +52,12 @@ namespace SteamProfiles.Forms
             NewVersionAsk = res.GetString("NewVersionAsk");
             CurrentVersion = res.GetString("CurrentVersion");
             End = res.GetString("End");
+            Dark = res.GetString("Dark");
+            Light = res.GetString("Light");
+            OldSchool = res.GetString("OldSchool");
+            lang.Add(Dark, "Dark");
+            lang.Add(Light, "Light");
+            lang.Add(OldSchool, "OldSchool");
         }
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -90,37 +95,83 @@ namespace SteamProfiles.Forms
             }
         }
 
-        private void Settings_Load(object sender, EventArgs e)
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            res = new ResourceManager("SteamProfiles.Resource.Settings.Res", typeof(Settings).Assembly);
-            Switch_language();
-            ThemeMode();
-            if (!Check())
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))
             {
-                RegisterInStartup(checkBox1.Checked);
+                if (key != null)
+                {
+                    foreach (var item in lang)
+                    {
+                        if (item.Key == Theme.SelectedItem.ToString())
+                        {
+                            switch (item.Value)
+                            {
+                                case "Dark":
+                                    key.SetValue("Mode", "Dark");
+                                    Theme.SelectedItem = "Dark";
+                                    ThemeMode();
+                                    break;
+                                case "Light":
+                                    key.SetValue("Mode", "Light");
+                                    Theme.SelectedItem = "Light";
+                                    ThemeMode();
+                                    break;
+                                case "OldSchool":
+                                    key.SetValue("Mode", "OldSchool");
+                                    Theme.SelectedItem = "OldSchool";
+                                    ThemeMode();
+                                    break;
+                            }
+                        }
+                    }
+                   
+                }
             }
+        }
+
+
+
+        void AdditemsToTheme()
+        {
+            Theme.Items.Add(Dark);
+            Theme.Items.Add(Light);
+            Theme.Items.Add(OldSchool);
+        }
+        void ComboboxSlection()
+        {
+            
+           
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles"))
             {
                 textBox1.Text = key?.GetValue("SteamPath")?.ToString();
-                regestyLang = key?.GetValue("Language")?.ToString();
+                comboBox2.SelectedItem = key?.GetValue("Language")?.ToString();
+                foreach (var item in lang)
+                {
+                    if (item.Value == key.GetValue("Mode").ToString())
+                    {
+                        Theme.SelectedItem = item.Key;
+                        break;
+                    }
+                }      
+            }
+        }
+        private void Settings_Load(object sender, EventArgs e)
+        {
+            res = new ResourceManager("SteamProfiles.Resource.Settings.Res", typeof(Settings).Assembly);
+            Switch_language();
+            ThemeMode();
+            AdditemsToTheme();
+            if (!Check())
+            {
+                RegisterInStartup(checkBox1.Checked);
             }
             foreach (string drive in Directory.GetLogicalDrives())
             {
                 comboBox1.Items.Add(drive);
             }
             comboBox1.SelectedItem = comboBox1.Items[0];
-            if (regestyLang == "Русский")
-            {
-                comboBox2.SelectedItem = comboBox2.Items[1];
-                start = true;
-            }
-            else if (regestyLang == "English")
-            {
-                comboBox2.SelectedItem = comboBox2.Items[0];
-                start = true;
-            }
-
+            ComboboxSlection();
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
@@ -292,44 +343,28 @@ namespace SteamProfiles.Forms
         void ThemeMode()
         {
             using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
-            if (key.GetValue("Mode")?.ToString() == "Dark")
+            switch (key.GetValue("Mode")?.ToString())
             {
-                GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(45, 45, 45), Color.FromArgb(55, 55, 55));
-                toggleSliderComponent1.ToggleBarText = ToggleOn;
-                toggleSliderComponent1.Checked = true;
-                BackColor = Color.FromArgb(28, 28, 28);
-            }
-            else if (key.GetValue("Mode")?.ToString() == "Light")
-            {
-                GetAllControls.ThemeChange(mode: true, this, Color.FromArgb(0, 0, 50), Color.FromArgb(0, 0, 75));
-                toggleSliderComponent1.ToggleBarText = ToggleOff;
-                toggleSliderComponent1.Checked = false;
-                BackColor = Color.FromArgb(0, 0, 50);
-            }
-            else
-            {
-                key.SetValue("Mode", "Light");
-            }
-        }
-        private void ToggleSliderComponent1_CheckChanged(object sender, EventArgs e)
-        {
-            using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
-            if (toggleSliderComponent1.Checked)
-            {
-                toggleSliderComponent1.ToggleBarText = ToggleOn;
-                GetAllControls.ThemeChange(toggleSliderComponent1.Checked, this, Color.FromArgb(45, 45, 45), Color.FromArgb(55, 55, 55));
-                BackColor = Color.FromArgb(45, 45, 45);
-                key.SetValue("Mode", "Dark");
-            }
-            else
-            {
-                toggleSliderComponent1.ToggleBarText = ToggleOff;
-                GetAllControls.ThemeChange(toggleSliderComponent1.Checked, this, Color.FromArgb(0, 0, 50), Color.FromArgb(0, 0, 75));
-                BackColor = Color.FromArgb(0, 0, 50);
-                key.SetValue("Mode", "Light");
+                case "Dark":
+                    Themes.ThemeChange(mode: true, this, Color.FromArgb(45, 45, 45), Color.FromArgb(45, 45, 45), Color.FromArgb(55, 55, 55));
+                    BackColor = Color.FromArgb(45, 45, 45);
+                    Themes.ChangeForeColor(true, this, Color.White);
+                    break;
+                case "Light":
+                    Themes.ThemeChange(mode: true, form: this, backcolor: Color.FromArgb(189, 204, 212), buttoncolor: Color.FromArgb(189, 204, 212), MouseDownBackColor: Color.FromArgb(55, 55, 55));
+                    BackColor = Color.FromArgb(189, 204, 212);
+                    Themes.ChangeForeColor(true, this, Color.Black);
+                    break;
+                case "OldSchool":
+                    Themes.ThemeChange(mode: true, this, Color.FromArgb(0, 0, 80), Color.FromArgb(0, 0, 80), Color.FromArgb(0, 0, 75));
+                    BackColor = Color.FromArgb(0, 0, 80);
+                    Themes.ChangeForeColor(true, this, Color.White);
+                    break;
+                default:
+                    key.SetValue("Mode", "Light");
+                    break;
             }
         }
-
         private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))

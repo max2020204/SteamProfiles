@@ -126,17 +126,26 @@
   <data name="CurrentVersion" xml:space="preserve">
     <value>Current version:</value>
   </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
   <data name="End" xml:space="preserve">
     <value> version?</value>
   </data>
   <data name="LastVersion" xml:space="preserve">
     <value>You are using latest version:</value>
   </data>
+  <data name="Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
   <data name="NewVersion" xml:space="preserve">
     <value>A new version is available!</value>
   </data>
   <data name="NewVersionAsk" xml:space="preserve">
     <value>Do you want to update your program to the</value>
+  </data>
+  <data name="OldSchool" xml:space="preserve">
+    <value>OldSchool</value>
   </data>
   <data name="RestartRequired" xml:space="preserve">
     <value>Restart required</value>
@@ -146,11 +155,5 @@
   </data>
   <data name="SteamPath" xml:space="preserve">
     <value>Steam path</value>
-  </data>
-  <data name="ToggleOff" xml:space="preserve">
-    <value>Off</value>
-  </data>
-  <data name="ToggleOn" xml:space="preserve">
-    <value>On</value>
   </data>
 </root>

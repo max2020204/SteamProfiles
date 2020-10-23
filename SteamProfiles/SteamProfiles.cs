@@ -90,21 +90,24 @@ namespace SteamProfiles
                 }
             }
         }
-        void ContextMenuTheme(Color BackColor)
+        void ContextMenuTheme(Color BackColor,Color Forecolor)
         {
             for (int i = 0; i < gridmenustrip.Items.Count; i++)
             {
                 gridmenustrip.Items[i].BackColor = BackColor;
+                gridmenustrip.Items[i].ForeColor = Forecolor;
                 ToolStripMenuItem items = gridmenustrip.Items[i] as ToolStripMenuItem;
                 for (int j = 0; j < items.DropDownItems.Count; j++)
                 {
                     items.DropDownItems[j].BackColor = BackColor;
+                    items.DropDownItems[j].ForeColor = Forecolor;
                     ToolStripMenuItem DropedItems = items;
                     if (DropedItems.DropDownItems.Count > 0)
                     {
                         for (int k = 0; k < DropedItems.DropDownItems.Count; k++)
                         {
                             DropedItems.DropDownItems[k].BackColor = BackColor;
+                            DropedItems.DropDownItems[k].ForeColor = Forecolor;
                         }
                     }
                 }
@@ -112,52 +115,85 @@ namespace SteamProfiles
             for (int i = 0; i < notifymenustrip.Items.Count; i++)
             {
                 notifymenustrip.Items[i].BackColor = BackColor;
+                notifymenustrip.Items[i].ForeColor = Forecolor;
             }
             showToolStripMenuItem.BackColor = BackColor;
+            showToolStripMenuItem.ForeColor = Forecolor;
+
             hideToolStripMenuItem.BackColor = BackColor;
+            hideToolStripMenuItem.ForeColor = Forecolor;
         }
         bool ThemeMode()
         {
             using RegistryKey mode = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
             if (mode != null)
             {
-                if (mode.GetValue("Mode")?.ToString() == "Dark")
+                switch (mode.GetValue("Mode")?.ToString())
                 {
-                    panel1.BackColor = Color.FromArgb(28, 28, 28);
-                    button3.BackColor = Color.FromArgb(28, 28, 28);
-                    pictureBox1.BackColor = Color.FromArgb(28, 28, 28);
-                    metroGrid1.BackgroundColor = Color.FromArgb(45, 45, 45);
-                    metroGrid1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(35, 35, 35);
-                    metroGrid1.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(45, 45, 45);
-                    metroGrid1.DefaultCellStyle.BackColor = Color.FromArgb(45, 45, 45);
-                    metroGrid1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(55, 55, 55);
-                    metroGrid1.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 45, 45);
-                    metroGrid1.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(55, 55, 55);
-                    FlatApperence(Color.FromArgb(55, 55, 55));
-                    gridmenustrip.Renderer = new ChangeMunuStripDark();
-                    notifymenustrip.Renderer = new ChangeMunuStripDark();
-                    ContextMenuTheme(Color.FromArgb(45, 45, 45));
-                    return true;
+                    case "Dark":
+                        panel1.BackColor = Color.FromArgb(28, 28, 28);
+                        button3.BackColor = Color.FromArgb(28, 28, 28);
+                        pictureBox1.BackColor = Color.FromArgb(28, 28, 28);
+                        metroGrid1.BackgroundColor = Color.FromArgb(45, 45, 45);
+                        metroGrid1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(35, 35, 35);
+                        metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                        metroGrid1.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(45, 45, 45);
+                        metroGrid1.DefaultCellStyle.BackColor = Color.FromArgb(45, 45, 45);
+                        metroGrid1.DefaultCellStyle.ForeColor = Color.White;
+                        metroGrid1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(55, 55, 55);
+                        metroGrid1.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 45, 45);
+                        metroGrid1.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(55, 55, 55);
+                        metroGrid1.RowHeadersDefaultCellStyle.ForeColor = Color.White;
+                        FlatApperence(Color.FromArgb(55, 55, 55));
+                        gridmenustrip.Renderer = new ChangeMunuStripDark();
+                        notifymenustrip.Renderer = new ChangeMunuStripDark();
+                        ContextMenuTheme(Color.FromArgb(45, 45, 45),Color.White);
+                        Themes.ChangeForeColor(true, this, Color.White);
+                        break;
+                    case "Light":
+                        panel1.BackColor = Color.FromArgb(166, 177, 183);
+                        button3.BackColor = Color.FromArgb(166, 177, 183);
+                        pictureBox1.BackColor = Color.FromArgb(166, 177, 183);
+                        metroGrid1.BackgroundColor = Color.FromArgb(189, 204, 212);
+                        metroGrid1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(166, 177, 183);
+                        metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+                        metroGrid1.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(155, 160, 170);
+                        metroGrid1.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
+                        metroGrid1.DefaultCellStyle.BackColor = Color.FromArgb(189, 204, 212);
+                        metroGrid1.DefaultCellStyle.ForeColor = Color.Black;
+                        metroGrid1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(155, 160, 170);
+                        metroGrid1.DefaultCellStyle.SelectionForeColor = Color.White;
+                        metroGrid1.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(189, 204, 212);
+                        metroGrid1.RowHeadersDefaultCellStyle.ForeColor = Color.Black;
+                        metroGrid1.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(155, 160, 170);
+                        metroGrid1.RowHeadersDefaultCellStyle.SelectionForeColor = Color.White;
+                        FlatApperence(Color.FromArgb(158, 169, 174));
+                        gridmenustrip.Renderer = new ChangeMunuStripLight();
+                        notifymenustrip.Renderer = new ChangeMunuStripLight();
+                        ContextMenuTheme(Color.FromArgb(166, 177, 183),Color.Black);
+                        Themes.ChangeForeColor(true, this, Color.Black);
+                        break;
+                    case "OldSchool":
+                        panel1.BackColor = Color.FromArgb(0, 0, 50);
+                        button3.BackColor = Color.FromArgb(0, 0, 50);
+                        pictureBox1.BackColor = Color.FromArgb(0, 0, 50);
+                        metroGrid1.BackgroundColor = Color.FromArgb(0, 0, 80);
+                        metroGrid1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 0, 70);
+                        metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                        metroGrid1.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 0, 100);
+                        metroGrid1.DefaultCellStyle.BackColor = Color.FromArgb(0, 0, 80);
+                        metroGrid1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 0, 100);
+                        metroGrid1.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 0, 80);
+                        metroGrid1.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 0, 100);
+                        FlatApperence(Color.FromArgb(0, 0, 75));
+                        gridmenustrip.Renderer = new ChangeMunuStripOldSchool();
+                        notifymenustrip.Renderer = new ChangeMunuStripOldSchool();
+                        ContextMenuTheme(Color.FromArgb(0, 0, 80),Color.White);
+                        Themes.ChangeForeColor(true, this, Color.White);
+                        break;
+                    default:
+                        break;
                 }
-                else if (mode.GetValue("Mode")?.ToString() == "Light")
-                {
-                    panel1.BackColor = Color.FromArgb(0, 0, 50);
-                    button3.BackColor = Color.FromArgb(0, 0, 50);
-                    pictureBox1.BackColor = Color.FromArgb(0, 0, 50);
-                    metroGrid1.BackgroundColor = Color.FromArgb(0, 0, 80);
-                    metroGrid1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 0, 70);
-                    metroGrid1.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 0, 100);
-                    metroGrid1.DefaultCellStyle.BackColor = Color.FromArgb(0, 0, 80);
-                    metroGrid1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 0, 100);
-                    metroGrid1.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 0, 80);
-                    metroGrid1.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 0, 100);
-                    FlatApperence(Color.FromArgb(0, 0, 75));
-                    gridmenustrip.Renderer = new ChangeMunuStripLight();
-                    notifymenustrip.Renderer = new ChangeMunuStripLight();
-                    ContextMenuTheme(Color.FromArgb(0, 0, 80));
-                    return false;
-                }
-
             }
             return false;
         }
@@ -196,34 +232,7 @@ namespace SteamProfiles
                     metroGrid1.DefaultCellStyle.ForeColor = Color.FromArgb(settings.CellTextColor.CellTextColorR, settings.CellTextColor.CellTextColorG, settings.CellTextColor.CellTextColorB);
                     metroGrid1.DefaultCellStyle.Font = settings.CellSize;
                 }
-                if (key.GetValue("Mode")?.ToString() == "Dark")
-                {
-                    panel1.BackColor = Color.FromArgb(28, 28, 28);
-                    button3.BackColor = Color.FromArgb(28, 28, 28);
-                    pictureBox1.BackColor = Color.FromArgb(28, 28, 28);
-                    metroGrid1.BackgroundColor = Color.FromArgb(45, 45, 45);
-                    metroGrid1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(35, 35, 35);
-                    metroGrid1.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(45, 45, 45);
-                    metroGrid1.DefaultCellStyle.BackColor = Color.FromArgb(45, 45, 45);
-                    metroGrid1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(55, 55, 55);
-                    metroGrid1.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 45, 45);
-                    metroGrid1.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(55, 55, 55);
-
-                }
-                else if (key.GetValue("Mode")?.ToString() == "Light")
-                {
-                    panel1.BackColor = Color.FromArgb(0, 0, 50);
-                    button3.BackColor = Color.FromArgb(0, 0, 50);
-                    pictureBox1.BackColor = Color.FromArgb(0, 0, 50);
-                    metroGrid1.BackgroundColor = Color.FromArgb(0, 0, 80);
-                    metroGrid1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 0, 70);
-                    metroGrid1.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 0, 100);
-                    metroGrid1.DefaultCellStyle.BackColor = Color.FromArgb(0, 0, 80);
-                    metroGrid1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 0, 100);
-                    metroGrid1.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 0, 80);
-                    metroGrid1.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 0, 100);
-                }
-
+                
             }
         }
         public void MinimizeApp(string parameter)

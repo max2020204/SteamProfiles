@@ -42,7 +42,6 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.textBox2);
@@ -50,27 +49,28 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // textBox3
             // 
-            resources.ApplyResources(this.textBox3, "textBox3");
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
             this.textBox3.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox3, "textBox3");
             this.textBox3.Name = "textBox3";
             // 
             // textBox2
             // 
-            resources.ApplyResources(this.textBox2, "textBox2");
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
             this.textBox2.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox2, "textBox2");
             this.textBox2.Name = "textBox2";
             // 
             // textBox1
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(80)))));
             this.textBox1.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
             // 
             // label3
@@ -93,8 +93,8 @@
             // 
             // button1
             // 
-            resources.ApplyResources(this.button1, "button1");
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(50)))));
+            resources.ApplyResources(this.button1, "button1");
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(75)))));
             this.button1.ForeColor = System.Drawing.Color.White;

@@ -117,14 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="metroLabel1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="button1.Text" xml:space="preserve">
     <value>Поиск</value>
-  </data>
-  <data name="button1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="metroLabel3.Size" type="System.Drawing.Size, System.Drawing">
@@ -133,44 +127,20 @@
   <data name="metroLabel3.Text" xml:space="preserve">
     <value>Пожалуйста, подождите...</value>
   </data>
-  <data name="metroLabel3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="button2.Text" xml:space="preserve">
     <value>Найти</value>
-  </data>
-  <data name="button2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="comboBox1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="metroLabel2.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Автопоиск</value>
   </data>
-  <data name="groupBox3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBox1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Путь</value>
-  </data>
-  <data name="groupBox1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 25</value>
   </data>
   <data name="checkBox1.Text" xml:space="preserve">
     <value>Авто запуск</value>
-  </data>
-  <data name="checkBox1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
@@ -181,18 +151,9 @@
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Автозапуск</value>
   </data>
-  <data name="groupBox2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="groupBox4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="toggleSliderComponent1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 29</value>
-  </data>
-  <data name="toggleSliderComponent1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="groupBox4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
@@ -201,13 +162,7 @@
     <value>287, 50</value>
   </data>
   <data name="groupBox4.Text" xml:space="preserve">
-    <value>Темная тема</value>
-  </data>
-  <data name="groupBox4.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="panel1.ToolTip" xml:space="preserve">
-    <value />
+    <value>Тема</value>
   </data>
   <data name="metroLabel4.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 17</value>
@@ -218,14 +173,8 @@
   <data name="metroLabel4.Text" xml:space="preserve">
     <value>Язык</value>
   </data>
-  <data name="metroLabel4.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="comboBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>101, 20</value>
-  </data>
-  <data name="comboBox2.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
@@ -236,9 +185,6 @@
   <data name="groupBox5.Text" xml:space="preserve">
     <value>Язык</value>
   </data>
-  <data name="groupBox5.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -248,17 +194,11 @@
   <data name="button3.Text" xml:space="preserve">
     <value>Проверить</value>
   </data>
-  <data name="button3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="metroLabel5.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 25</value>
   </data>
   <data name="metroLabel5.Text" xml:space="preserve">
     <value>Обновления</value>
-  </data>
-  <data name="metroLabel5.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="groupBox6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
@@ -269,95 +209,83 @@
   <data name="groupBox6.Text" xml:space="preserve">
     <value>Обновления</value>
   </data>
-  <data name="groupBox6.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="panel3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="panel2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA
-        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8E////LP///23///+n////1v//
-        //T///////////////P////V////pf///2r///8p////A////wD///8A////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8E////Of///5b////h/////P//
-        /////////////////////////////////////////////P///97///+Q////NP///wP///8A////AP//
-        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////Hf///4z////r////////
-        ///////////////////////////////////////////////////////////////////////n////gf//
-        /xj///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///zr////F////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ///////+////uv///y7///8A////AP///wD///8A////AP///wD///8A////AP///wD///9H////2///
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////0P///zn///8A////AP///wD///8A////AP///wD///8A////N///
-        /9n////////////////////2////uf///4r///+F////pf///+n/////////////////////////////
-        ////////////////////////////////////////////0P///y7///8A////AP///wD///8A////AP//
-        /xv////C////////////////////5////2X///8p////Xf///2f///80////P////8r/////////////
-        ////////////////////////////////////////////////////////////uP///xf///8A////AP//
-        /wD///8D////jv////////////////////v///9q////Pf///6L///+b////nP///8L///9o////Of//
-        /+L/////////////////////////////////////////////////////////////////////////fv//
-        /wH///8A////AP///z3////r////////////////////zP///xj///81////IP///wH///8A////N///
-        /8j///9B////kv//////////////////////////////////////////////////////////////////
-        ///////l////M////wD///8D////nP/////////+////4P///5f///87////Af///wD///8A////AP//
-        /wD///8A////m////3X///9m////////////////////////////////////////////////////////
-        //////////////////////+M////AP///zD////a////x////3P///8l////Av///wD///8A////AP//
-        /wD///8A////AP///wD///+Z////eP///yX///+5/////P//////////////////////////////////
-        /////////////////////////////////9r///8l////Nf///07///8R////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A////NP///8b///9C////AP///xP///+E////7f//////////////////
-        ////////////////////////////////////////////+v///2X///8A////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A////KP///3b////A////bv///wP///8A////AP///wP///9M////0P//
-        ////////////////////////////////////////////////////////////nP///wD///8A////AP//
-        /wD///8A////AP///wD///8O////L////w////88////Zf///zT///8D////AP///wD///8A////AP//
-        /wD///8i////nf///+v////5///////////////////////////////////////////////O////AP//
-        /wD///8A////AP///wH///8e////Z////7v////s////vP///33///89////Af///wD///8A////AP//
-        /wD///8A////AP///wD///8J////LP///0r///+I////3f//////////////////////////////////
-        /+n///8A////AP///wj///86////i////9j////9/////////////////////////9////8x////AP//
-        /wD///8A////AP///wD///8A////Af///wj///8J////Av///wD///8w////u///////////////////
-        /////////////////xv///9Z////r////+7/////////////////////////////////////////////
-        /7H///8R////AP///wD///8A////AP///xj///95////tv///7v///+h////Qv///wD///8l////0P//
-        ////////////////////////////z/////r/////////////////////////////////////////////
-        /////////////P///3j///8A////AP///wD///8V////q////6n///9Q////QP///3b////I////Uf//
-        /wD///9h////+////////////////////+r////b////////////////////////////////////////
-        ////////////////////////////6P///0H///8A////AP///3H///+v////D////wD///8A////AP//
-        /1P///+9////Fv///xj////W////////////////////zv///7H/////////////////////////////
-        ////////////////////////////////////////////vf///xX///8C////qf///2H///8A////AP//
-        /wD///8A////DP///7b///9C////A////7j///////////////////+c////eP////3/////////////
-        ///////////////////////////////////////////////////////3////Q////wL///+v////Vv//
-        /wD///8A////AP///wD///8H////r////0j///8C////tP//////////////+v///2X///8u////4f//
-        //////////////////////////////////////////////////////////////////////9p////AP//
-        /4P///+W////BP///wD///8A////AP///zT////D////JP///xD////O///////////////a////Jf//
-        /wP///+d////////////////////////////////////////////////////////////////////////
-        /6j///8F////Jv///8L///9+////HP///w7///8+////uv///3v///8A////TP////X/////////////
-        /4z///8A////AP///z3////s////////////////////////////////////////////////////////
-        ////////////8v///1P///8A////M////6z////C////u////8H///9z////C////xD///+2////////
-        ///////n////Nf///wD///8A////A////4//////////////////////////////////////////////
-        ////////////////////////////2f///0b///8B////CP///yz///88////Fv///wD///8T////lP//
-        //z//////////////4P///8B////AP///wD///8A////Hv///8b/////////////////////////////
-        ////////////////////////////////////////////5////4L///8z////D////wf///8e////V///
-        /7v////8//////////////+5////F////wD///8A////AP///wD///8A////PP///93/////////////
-        /////////////////////////////////////////////////////////////v///+3////O////w///
-        /9/////6////////////////////0P///y////8A////AP///wD///8A////AP///wD///8A////Sf//
-        /93/////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////9P///89////AP///wD///8A////AP///wD///8A////AP//
-        /wD///8A////Ov///8X/////////////////////////////////////////////////////////////
-        //////////////////////////////////7///+9////MP///wD///8A////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A////Hf///4z////r////////////////////////////////////////
-        ///////////////////////////////////////o////h////xj///8A////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A////AP///wD///8A////BP///zv///+a////4P////z/////////////
-        //////////////////////////////////z////e////lv///zb///8C////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wT///8s////c///
-        /67////V////9P//////////////8v///9T///+s////cP///yn///8D////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A/4AB//4AAH/8AAA/+AAAH/AAAA/gAAAHwAAAA4AAAAGAEAABAPgAAQP4
-        AAAf8QAA/8GAAP4D4ADwB/AAwAfhAAADwIAAA4BAAAGOAAAAHgAAAB4AAACOAAAAAEGAAEABgAABAcAA
-        AAPgAAAH8AAAD/gAAB/8AAA//gAAf/+AAf8=
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAABILAAASCwAAAAAAAAAA
+        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8An5mOIJ+ZjvCfmY7/n5mO/5+Zjv+fmY7/n5mO/5+Zjv+fmY7/n5mO/5+Z
+        jv+fmY7/n5mO/5+Zjv+fmY7/n5mO/5+Zjv+fmY7/n5mO/5+Zjv+fmY7/n5mO/5+Zjv+fmY7/n5mO/5+Z
+        jv+fmY7/n5mO/5+Zjv+fmY7/n5mO8J+ZjiCyq59Xx8Cy/8fAsv/HwLL/x8Cy/8fAsv/HwLL/x8Cy/8fA
+        sv/HwLL/x8Cy/8fAsv/HwLL/x8Cy/8fAsv/HwLL/x8Cy/8fAsv/HwLL/x8Cy/8fAsv/HwLL/x8Cy/8fA
+        sv/HwLL/x8Cy/8fAsv/HwLL/x8Cy/8fAsv/HwLL/squfV8e/spTUzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/Hv7KUx7+ylNTMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/tq6f/4B4av95cWP/iIBy/721pv/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/8e/spTHv7KU1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/6aekP9bU0X/W1NF/2JaTP9bU0X/W1NF/7au
+        n//UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/x7+ylMe/
+        spTUzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/YFhK/15WSP9nX1H/kIh5/56W
+        iP9bU0X/cWlb/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/Hv7KUx7+ylNTMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf+9tab/kIh5/2piVP9bU0X/W1NF/1tT
+        Rf9bU0X/gHhq/3lxY/9bU0X/vbWm/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/8e/spTQyLp51My9/9TMvf/UzL3/1My9/8W9rv+Xj4H/amJU/1tTRf9bU0X/W1NF/1tT
+        Rf9bU0X/W1NF/1tTRf+knI7/W1NF/2ZeUP9bU0X/pp6Q/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/0Mi6edTMvXDUzL3/1My9/9TMvf/UzL3/W1NF/1tTRf9bU0X/W1NF/1tT
+        Rf9bU0X/W1NF/1tTRf9cVEb/amJU/1tTRf9bU0X/YFhK/1tTRf9bU0X/iIBy/8zEtf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL1w1My9cNTMvf/UzL3/1My9/9TMvf9bU0X/W1NF/1tT
+        Rf9bU0X/W1NF/1tTRf95cWP/hX1v/3FpW/9bU0X/ZV1P/2BYSv9bU0X/W1NF/1tTRf9bU0X/bGRW/7Co
+        mf/Fva7/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvXDUzL1w1My9/9TMvf/UzL3/1My9/1tT
+        Rf9bU0X/W1NF/1tTRf+IgHL/vbWm/9TMvf/UzL3/1My9/8W9rv9iWkz/W1NF/1tTRf9bU0X/YlpM/1tT
+        Rf9bU0X/W1NF/1tTRf95cWP/zMS1/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9cNTMvXDUzL3/1My9/9TM
+        vf/UzL3/W1NF/2JaTP+Xj4H/xb2u/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/66ml/9bU0X/W1NF/2Ja
+        TP9bU0X/aWFT/4V9b/+EfG7/e3Nl/1tTRf9xaVv/zMS1/9TMvf/UzL3/1My9/9TMvf/UzL1w1My9cNTM
+        vf/UzL3/1My9/9TMvf+mnpD/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/4B4
+        av9bU0X/W1NF/2lhU/9waFr/W1NF/1tTRf9bU0X/enJk/1tTRf+fl4j/1My9/9TMvf/UzL3/1My9/9TM
+        vXDUzL1w1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/zMS1/2BYSv9bU0X/iIBy/1tTRf9bU0X/W1NF/1tTRf93b2H/W1NF/4B4av/UzL3/1My9/9TM
+        vf/UzL3/1My9cNTMvXDUzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/pZ2O/1tTRf+IgHL/W1NF/1tTRf9bU0X/W1NF/3x0Zv9bU0X/gHhq/9TM
+        vf/UzL3/1My9/9TMvf/UzL1w1My9cNTMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/MxLX/W1NF/2JaTP9waFr/W1NF/1tTRf9iWkz/fXVn/1tT
+        Rf+mnpD/1My9/9TMvf/UzL3/1My9/9TMvXDUzL1w1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf+Xj4H/W1NF/2JaTP+EfG7/fXVn/3Vt
+        X/9bU0X/cWlb/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9cNTMvXDUzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf+fl4j/YlpM/1tT
+        Rf9bU0X/W1NF/4B4av/MxLX/1My9/9TMvf/UzL3/1My9/9TMvf/UzL1w0cm7edTMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/tq6f/7aun//Fva7/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9HJu3nKw7aU1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/ysO2lMO9
+        sHC+uKz/vris/+fj2//n49v/5+Pb/+fj2//n49v/5+Pb/+fj2//n49v/5+Pb/+fj2//n49v/5+Pb/+fj
+        2//n49v/5+Pb/+fj2//n49v/5+Pb/+fj2//n49v/5+Pb/+fj2//n49v/5+Pb/+fj2//n49v/vris/764
+        rP/DvbBwycK1WLmzp/+3sab/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r
+        5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r
+        5f+3sab/ubOn/8nCtVjUzL1A1My9/9TMvf/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r
+        5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r
+        5f/u6+X/7uvl/9TMvf/UzL3/1My9QNTMvUDUzL3/1My9/9zWyv/h3NH/4dzR/+Hc0f/h3NH/4dzR/+Hc
+        0f/h3NH/4dzR/+Hc0f/h3NH/4dzR/+Hc0f/h3NH/4dzR/+Hc0f/h3NH/4dzR/+Hc0f/h3NH/4dzR/+Hc
+        0f/h3NH/4dzR/+Hc0f/c1sr/1My9/9TMvf/UzL1A1My9cNTMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvUDUzL1Y1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvdDUzL3A1My9wNTMvcDUzL3A1My9wNTM
+        vcDUzL3A1My9wNTMvcDUzL3A1My9wNTMvcDUzL3A1My9wNTMvcDUzL3A1My9INTMvUDUzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9QP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A1My9ENTM
+        vdDUzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvdDUzL0Q////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A//////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAB//8AAf////////////8=
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Настройки</value>
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
   </data>
 </root>

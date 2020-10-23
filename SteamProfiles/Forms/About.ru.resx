@@ -132,8 +132,8 @@
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>354, 117</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>О программе</value>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 117</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 21</value>
@@ -147,9 +147,6 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Автор: BlackDream</value>
   </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 117</value>
-  </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 187</value>
   </data>
@@ -158,6 +155,82 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>354, 257</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAABILAAASCwAAAAAAAAAA
+        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8An5mOIJ+ZjvCfmY7/n5mO/5+Zjv+fmY7/n5mO/5+Zjv+fmY7/n5mO/5+Z
+        jv+fmY7/n5mO/5+Zjv+fmY7/n5mO/5+Zjv+fmY7/n5mO/5+Zjv+fmY7/n5mO/5+Zjv+fmY7/n5mO/5+Z
+        jv+fmY7/n5mO/5+Zjv+fmY7/n5mO8J+ZjiCyq59Xx8Cy/8fAsv/HwLL/x8Cy/8fAsv/HwLL/x8Cy/8fA
+        sv/HwLL/x8Cy/8fAsv/HwLL/x8Cy/8fAsv/HwLL/x8Cy/8fAsv/HwLL/x8Cy/8fAsv/HwLL/x8Cy/8fA
+        sv/HwLL/x8Cy/8fAsv/HwLL/x8Cy/8fAsv/HwLL/squfV8e/spTUzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/Hv7KUx7+ylNTMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/tq6f/4B4av95cWP/iIBy/721pv/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/8e/spTHv7KU1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/6aekP9bU0X/W1NF/2JaTP9bU0X/W1NF/7au
+        n//UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/x7+ylMe/
+        spTUzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/YFhK/15WSP9nX1H/kIh5/56W
+        iP9bU0X/cWlb/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/Hv7KUx7+ylNTMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf+9tab/kIh5/2piVP9bU0X/W1NF/1tT
+        Rf9bU0X/gHhq/3lxY/9bU0X/vbWm/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/8e/spTQyLp51My9/9TMvf/UzL3/1My9/8W9rv+Xj4H/amJU/1tTRf9bU0X/W1NF/1tT
+        Rf9bU0X/W1NF/1tTRf+knI7/W1NF/2ZeUP9bU0X/pp6Q/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/0Mi6edTMvXDUzL3/1My9/9TMvf/UzL3/W1NF/1tTRf9bU0X/W1NF/1tT
+        Rf9bU0X/W1NF/1tTRf9cVEb/amJU/1tTRf9bU0X/YFhK/1tTRf9bU0X/iIBy/8zEtf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL1w1My9cNTMvf/UzL3/1My9/9TMvf9bU0X/W1NF/1tT
+        Rf9bU0X/W1NF/1tTRf95cWP/hX1v/3FpW/9bU0X/ZV1P/2BYSv9bU0X/W1NF/1tTRf9bU0X/bGRW/7Co
+        mf/Fva7/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvXDUzL1w1My9/9TMvf/UzL3/1My9/1tT
+        Rf9bU0X/W1NF/1tTRf+IgHL/vbWm/9TMvf/UzL3/1My9/8W9rv9iWkz/W1NF/1tTRf9bU0X/YlpM/1tT
+        Rf9bU0X/W1NF/1tTRf95cWP/zMS1/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9cNTMvXDUzL3/1My9/9TM
+        vf/UzL3/W1NF/2JaTP+Xj4H/xb2u/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/66ml/9bU0X/W1NF/2Ja
+        TP9bU0X/aWFT/4V9b/+EfG7/e3Nl/1tTRf9xaVv/zMS1/9TMvf/UzL3/1My9/9TMvf/UzL1w1My9cNTM
+        vf/UzL3/1My9/9TMvf+mnpD/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/4B4
+        av9bU0X/W1NF/2lhU/9waFr/W1NF/1tTRf9bU0X/enJk/1tTRf+fl4j/1My9/9TMvf/UzL3/1My9/9TM
+        vXDUzL1w1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/zMS1/2BYSv9bU0X/iIBy/1tTRf9bU0X/W1NF/1tTRf93b2H/W1NF/4B4av/UzL3/1My9/9TM
+        vf/UzL3/1My9cNTMvXDUzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/pZ2O/1tTRf+IgHL/W1NF/1tTRf9bU0X/W1NF/3x0Zv9bU0X/gHhq/9TM
+        vf/UzL3/1My9/9TMvf/UzL1w1My9cNTMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/MxLX/W1NF/2JaTP9waFr/W1NF/1tTRf9iWkz/fXVn/1tT
+        Rf+mnpD/1My9/9TMvf/UzL3/1My9/9TMvXDUzL1w1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf+Xj4H/W1NF/2JaTP+EfG7/fXVn/3Vt
+        X/9bU0X/cWlb/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9cNTMvXDUzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf+fl4j/YlpM/1tT
+        Rf9bU0X/W1NF/4B4av/MxLX/1My9/9TMvf/UzL3/1My9/9TMvf/UzL1w0cm7edTMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/tq6f/7aun//Fva7/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9HJu3nKw7aU1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/ysO2lMO9
+        sHC+uKz/vris/+fj2//n49v/5+Pb/+fj2//n49v/5+Pb/+fj2//n49v/5+Pb/+fj2//n49v/5+Pb/+fj
+        2//n49v/5+Pb/+fj2//n49v/5+Pb/+fj2//n49v/5+Pb/+fj2//n49v/5+Pb/+fj2//n49v/vris/764
+        rP/DvbBwycK1WLmzp/+3sab/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r
+        5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r
+        5f+3sab/ubOn/8nCtVjUzL1A1My9/9TMvf/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r
+        5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r5f/u6+X/7uvl/+7r
+        5f/u6+X/7uvl/9TMvf/UzL3/1My9QNTMvUDUzL3/1My9/9zWyv/h3NH/4dzR/+Hc0f/h3NH/4dzR/+Hc
+        0f/h3NH/4dzR/+Hc0f/h3NH/4dzR/+Hc0f/h3NH/4dzR/+Hc0f/h3NH/4dzR/+Hc0f/h3NH/4dzR/+Hc
+        0f/h3NH/4dzR/+Hc0f/c1sr/1My9/9TMvf/UzL1A1My9cNTMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvUDUzL1Y1My9/9TMvf/UzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvdDUzL3A1My9wNTMvcDUzL3A1My9wNTM
+        vcDUzL3A1My9wNTMvcDUzL3A1My9wNTMvcDUzL3A1My9wNTMvcDUzL3A1My9INTMvUDUzL3/1My9/9TM
+        vf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9QP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A1My9ENTM
+        vdDUzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvf/UzL3/1My9/9TMvdDUzL0Q////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A//////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAB//8AAf////////////8=
+</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>О программе</value>
