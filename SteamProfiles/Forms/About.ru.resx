@@ -129,6 +129,9 @@
 могут храниться в удобной для вас форме? Один раз записал
  и больше не мучаешься.</value>
   </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 120</value>
+  </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 21</value>
   </data>
@@ -140,6 +143,15 @@
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Автор: BlackDream</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 120</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 190</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 71</value>
   </data>
   <data name="button1.Text" xml:space="preserve">
     <value>Поддержать автора</value>
