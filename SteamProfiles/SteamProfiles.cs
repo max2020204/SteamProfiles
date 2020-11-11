@@ -26,10 +26,11 @@ namespace SteamProfiles
         StyleSettings settings;
         public SteamProfiles()
         {
+            SelectLanguage.Lang();
             Runing();
             Arguments();
-            Lang();
             AfterUpdate();
+
             InitializeComponent();
         }
         void AfterUpdate()
@@ -61,42 +62,11 @@ namespace SteamProfiles
         }
         void Switch_language()
         {
+            res = new ResourceManager("SteamProfiles.Resource.SteamProfiles.Res", typeof(SteamProfiles).Assembly);
             SteamSettings = res.GetString("SteamSettings");
             SuccessRemove = res.GetString("SuccessRemove");
             Dublicate = res.GetString("Dublicate");
 
-        }
-        void Lang()
-        {
-            res = new ResourceManager("SteamProfiles.Resource.SteamProfiles.Res", typeof(SteamProfiles).Assembly);
-            using (RegistryKey lang = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))
-            {
-                if (lang?.GetValue("Language") != null)
-                {
-                    if (lang.GetValue("Language").ToString() == "English")
-                    {
-                        Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
-                        Switch_language();
-                    }
-                    else if (lang.GetValue("Language").ToString() == "Русский")
-                    {
-                        Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru");
-                        Switch_language();
-                    }
-                    else
-                    {
-                        Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
-                        lang.SetValue("Language", "English");
-                        Switch_language();
-                    }
-                }
-                else
-                {
-                    Registry.CurrentUser.CreateSubKey(@"Software\SteamProfiles").SetValue("Language", "English");
-                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
-                    Switch_language();
-                }
-            }
         }
         void FlatApperence(Color MouseDownBackColor)
         {
@@ -224,7 +194,7 @@ namespace SteamProfiles
                         Themes.ChangeForeColor(true, this, Color.White);
                         break;
                     default:
-                        goto case "Light";
+                        break;
                 }
             }
             return false;
@@ -232,6 +202,7 @@ namespace SteamProfiles
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Switch_language();
             if (!ThemeMode())
             {
                 gridmenustrip.Renderer = new ChangeMunuStripLight();
@@ -361,7 +332,7 @@ namespace SteamProfiles
                                 using (RegistryKey key = Registry.CurrentUser.CreateSubKey($@"Software\SteamProfiles"))
                                 {
                                     key.SetValue("Mode", item);
-                                    ThemeMode();                                    
+                                    ThemeMode();
                                 }
                                 break;
                             }
@@ -618,11 +589,11 @@ namespace SteamProfiles
                     if (row.Cells[1].Value != null)
                     {
                         Registry.CurrentUser.DeleteSubKey($@"Software\SteamProfiles\{row.Cells[1].Value?.ToString()}");
-                        foreach (ToolStripMenuItem item in notifymenustrip.Items)
+                        for (int i = 0; i < notifymenustrip.Items.Count; i++)
                         {
-                            if ((string)item.Tag == row.Cells[1].Value?.ToString())
+                            if ((string)notifymenustrip.Items[i].Tag == row.Cells[1].Value?.ToString())
                             {
-                                notifymenustrip.Items.Remove(item);
+                                notifymenustrip.Items.Remove(notifymenustrip.Items[i]);
                                 break;
                             }
                         }

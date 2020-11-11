@@ -116,11 +116,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Res.en.resx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Resource\Settings\Res.ru.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Res.ru.resx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="SelectLanguage.cs" />
     <Compile Include="SteamProfiles.cs">
@@ -158,29 +160,70 @@
     <EmbeddedResource Include="Forms\About.ru.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\About.uk.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddProfile.ru.resx">
+      <DependentUpon>AddProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddProfile.uk.resx">
       <DependentUpon>AddProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditProfile.ru.resx">
       <DependentUpon>EditProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditProfile.uk.resx">
+      <DependentUpon>EditProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings.ru.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resource\Add\Res.en.resx" />
-    <EmbeddedResource Include="Resource\Add\Res.ru.resx" />
-    <EmbeddedResource Include="Resource\Edit\Res.en.resx" />
-    <EmbeddedResource Include="Resource\Edit\Res.ru.resx" />
+    <EmbeddedResource Include="Forms\Settings.uk.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Add\Res.en.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Add\Res.ru.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Add\Res.uk.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Edit\Res.en.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Edit\Res.ru.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Edit\Res.uk.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resource\Settings\Res.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Res.en.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource\Settings\Res.ru.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Res.ru.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resource\SteamProfiles\Res.en.resx" />
-    <EmbeddedResource Include="Resource\SteamProfiles\Res.ru.resx" />
+    <EmbeddedResource Include="Resource\Settings\Res.uk.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\SteamProfiles\Res.en.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\SteamProfiles\Res.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.ru.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\SteamProfiles\Res.uk.resx">
+      <LastGenOutput>Res.ua.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="SteamProfiles.resx">
       <DependentUpon>SteamProfiles.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +247,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SteamProfiles.ru.resx">
+      <DependentUpon>SteamProfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SteamProfiles.uk.resx">
       <DependentUpon>SteamProfiles.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

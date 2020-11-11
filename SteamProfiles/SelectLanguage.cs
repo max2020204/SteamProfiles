@@ -22,9 +22,14 @@ namespace SteamProfiles
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
             }
+            else if (key.GetValue("Language").ToString() == "Українська")
+            {
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("uk-UA");
+            }
             else
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+                key.SetValue("Language", "English");
             }
         }
     }
