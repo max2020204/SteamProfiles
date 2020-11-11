@@ -12,10 +12,6 @@ namespace SteamProfiles
         [STAThread]
         static void Main()
         {
-            if (File.Exists("update.bat"))
-            {
-                File.Delete("update.bat");
-            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SteamProfiles());

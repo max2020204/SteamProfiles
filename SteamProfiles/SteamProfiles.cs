@@ -9,6 +9,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Resources;
 using System.Threading;
@@ -25,10 +26,20 @@ namespace SteamProfiles
         StyleSettings settings;
         public SteamProfiles()
         {
-            Lang();
             Runing();
+            Arguments();
+            Lang();
+            AfterUpdate();
             InitializeComponent();
-            WindowState = FormWindowState.Normal;
+        }
+        void AfterUpdate()
+        {
+            if (File.Exists("update.bat"))
+            {
+                File.Delete("update.bat");
+                WindowState = FormWindowState.Normal;
+
+            }
         }
         void Runing()
         {
@@ -70,6 +81,12 @@ namespace SteamProfiles
                     else if (lang.GetValue("Language").ToString() == "Русский")
                     {
                         Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru");
+                        Switch_language();
+                    }
+                    else
+                    {
+                        Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+                        lang.SetValue("Language", "English");
                         Switch_language();
                     }
                 }
@@ -123,7 +140,7 @@ namespace SteamProfiles
                 int w = toolStripSeparator1.Width;
                 int h = toolStripSeparator1.Height;
                 e.Graphics.FillRectangle(new SolidBrush(BackColor), 0, 0, w, h);
-                e.Graphics.DrawLine(new Pen(Forecolor), 7, h/2, w - 12, h/2);
+                e.Graphics.DrawLine(new Pen(Forecolor), 7, h / 2, w - 12, h / 2);
             };
 
         }
@@ -207,7 +224,7 @@ namespace SteamProfiles
                         Themes.ChangeForeColor(true, this, Color.White);
                         break;
                     default:
-                        break;
+                        goto case "Light";
                 }
             }
             return false;
@@ -225,10 +242,7 @@ namespace SteamProfiles
                 gridmenustrip.Renderer = new ChangeMunuStripDark();
                 notifymenustrip.Renderer = new ChangeMunuStripDark();
             }
-            foreach (string s in Environment.GetCommandLineArgs())
-            {
-                MinimizeApp(s);
-            }
+            Arguments();
             Updates();
             notifyIcon1.Text = "SteamProfiles";
             notifyIcon1.Visible = true;
@@ -250,15 +264,113 @@ namespace SteamProfiles
 
             }
         }
-        public void MinimizeApp(string parameter)
+        public void Arguments()
         {
-            if (parameter == "-silent")
+            for (int i = 0; i < Environment.GetCommandLineArgs().Length; i++)
             {
-                this.WindowState = FormWindowState.Minimized;
-                notifyIcon1.Visible = true;
-                ShowInTaskbar = false;
-                ThemeMode();
-                Hide();
+                switch (Environment.GetCommandLineArgs()[i])
+                {
+                    case "-silent":
+                        this.WindowState = FormWindowState.Minimized;
+                        notifyIcon1.Visible = true;
+                        ShowInTaskbar = false;
+                        Hide();
+                        break;
+                    case "-h":
+                        try
+                        {
+                            int.TryParse(Environment.GetCommandLineArgs()[i + 1], out int height);
+                            Height = height;
+                        }
+                        catch (Exception) { }
+                        break;
+                    case "-w":
+                        try
+                        {
+                            int.TryParse(Environment.GetCommandLineArgs()[i + 1], out int width);
+                            Width = width;
+                        }
+                        catch (Exception) { }
+                        break;
+                    case "-language":
+                        try
+                        {
+                            using (RegistryKey lang = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))
+                            {
+                                lang.SetValue("Language", Environment.GetCommandLineArgs()[i + 1]);
+                            }
+                        }
+                        catch (Exception) { }
+                        break;
+                    case "-fullscreen":
+                        this.WindowState = FormWindowState.Maximized;
+                        break;
+                    case "-remove":
+                        try
+                        {
+                            Registry.CurrentUser.DeleteSubKey($@"Software\SteamProfiles\{Environment.GetCommandLineArgs()[i + 1]}");
+                        }
+                        catch (Exception) { }
+                        break;
+                    case "-add":
+                        string user = "", login = "", password = "";
+                        if (Environment.GetCommandLineArgs()[i + 1][0] != '-')
+                        {
+                            user = Environment.GetCommandLineArgs()[i + 1];
+                        }
+                        else
+                        {
+                            break;
+                        }
+                        if (Environment.GetCommandLineArgs()[i + 2][0] != '-')
+                        {
+                            login = Environment.GetCommandLineArgs()[i + 2];
+                        }
+                        else
+                        {
+                            break;
+                        }
+                        if (Environment.GetCommandLineArgs()[i + 3][0] != '-')
+                        {
+                            password = Environment.GetCommandLineArgs()[i + 3];
+                        }
+                        else
+                        {
+                            break;
+                        }
+                        using (RegistryKey key = Registry.CurrentUser.CreateSubKey($@"Software\SteamProfiles\{login}"))
+                        {
+                            user = Encriptor.Encypter(user);
+                            login = Encriptor.Encypter(login);
+                            password = Encriptor.Encypter(password);
+                            key.SetValue("UserName", user);
+
+                            key.SetValue("Login", login);
+
+                            key.SetValue("Password", password);
+
+                        }
+                        i += 3;
+                        break;
+                    case "-theme":
+                        string input_theme = Environment.GetCommandLineArgs()[i + 1];
+                        foreach (AvaibleThemes item in Enum.GetValues(typeof(AvaibleThemes)))
+                        {
+                            if (item.ToString().ToLower() == input_theme.ToLower())
+                            {
+                                using (RegistryKey key = Registry.CurrentUser.CreateSubKey($@"Software\SteamProfiles"))
+                                {
+                                    key.SetValue("Mode", item);
+                                    ThemeMode();                                    
+                                }
+                                break;
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
             }
         }
         void Save()
@@ -757,7 +869,7 @@ namespace SteamProfiles
         {
             ShowProfiles(new AddProfile());
         }
-        
+
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowProfiles(new EditProfile());

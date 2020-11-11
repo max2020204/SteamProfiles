@@ -98,6 +98,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvaibleThemes.cs" />
     <Compile Include="ChangeMenuStrip\ChangeHoverColorDark.cs" />
     <Compile Include="ChangeMenuStrip\ChangeHoverColorLight.cs" />
     <Compile Include="ChangeMenuStrip\ChangeHoverColorOldSchool.cs" />
