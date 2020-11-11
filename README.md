@@ -24,6 +24,43 @@
   <strong>-silent <br></strong>
 &nbsp;&nbsp;&nbsp;Auto-minimize to tray when opened
 </p>
+<p>
+  <strong>-h 720 <br></strong>
+&nbsp;&nbsp;&nbsp;Sets the height of the window
+  </p>
+  <p>
+  <strong>-w 1280 <br></strong>
+&nbsp;&nbsp;&nbsp;Sets the width of the window
+  </p>
+  <p>
+  <strong>-language English<br></strong>
+&nbsp;&nbsp;&nbsp;Setting the language: 
+<ul>
+  <li>English</li>
+  <li>Русский</li>
+</ul>
+</p>
+<p> 
+  <strong>-fullscreen<br></strong>
+&nbsp;&nbsp;&nbsp; Opens in fullscreen
+  </p>
+  <p> 
+  <strong>-remove login<br></strong>
+&nbsp;&nbsp;&nbsp;Remove account with current login
+  </p>
+  <p> 
+  <strong>-add username login password<br></strong>
+&nbsp;&nbsp;&nbsp;Add account with current username login and password
+  </p>
+   <p> 
+  <strong>-theme Dark<br></strong>
+&nbsp;&nbsp;&nbsp;Setting theme:
+  <ul>
+  <li>Dark</li>
+  <li>Light</li>
+  <li>OldSchool</li>
+</ul>
+  </p>
 <h1>Bugs</h1>
 <p>Find bugs? <br> Create bug report in issues tab<br>
 <h4>Instruction how to create bug report</h4>
