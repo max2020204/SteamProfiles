@@ -48,18 +48,12 @@ namespace SteamProfiles.Forms
                     user = Encriptor.Encypter(user);
                     login = Encriptor.Encypter(login);
                     pass = Encriptor.Encypter(pass);
-                    if (user != "")
-                        key.SetValue("UserName", user);
-                    else
-                        MessageBox.Show(UserNameError);
-                    if (login != "")
-                        key.SetValue("Login", login);
-                    else
-                        MessageBox.Show(LoginError);
-                    if (pass != "")
-                        key.SetValue("Password", pass);
-                    else
-                        MessageBox.Show(PasswordError);
+                    key.SetValue("UserName", user);
+
+                    key.SetValue("Login", login);
+
+                    key.SetValue("Password", pass);
+
                 }
                 textBox1.Clear();
                 textBox2.Clear();

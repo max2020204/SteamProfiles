@@ -1,9 +1,5 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Diagnostics;
+﻿using System;
 using System.IO;
-using System.Linq;
-using System.Resources;
 using System.Windows.Forms;
 
 namespace SteamProfiles

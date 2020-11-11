@@ -7,11 +7,9 @@ using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Net;
 using System.Reflection;
 using System.Resources;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SteamProfiles.Forms
@@ -19,7 +17,6 @@ namespace SteamProfiles.Forms
     public partial class Settings : Form
     {
         Dictionary<string, string> lang = new Dictionary<string, string>();
-        bool start = false;
         ResourceManager res;
         string AutoFindError, AutoFindResult, SteamPath,
         RestartRequired, RestartText, LastVersion, NewVersion,
@@ -29,7 +26,6 @@ namespace SteamProfiles.Forms
         {
             SelectLanguage.Lang();
             InitializeComponent();
-
         }
 
         void Switch_language()
@@ -86,7 +82,6 @@ namespace SteamProfiles.Forms
                 }
             }
         }
-
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))
@@ -121,9 +116,6 @@ namespace SteamProfiles.Forms
                 }
             }
         }
-
-
-
         void AdditemsToTheme()
         {
             Theme.Items.Add(Dark);
@@ -345,27 +337,6 @@ namespace SteamProfiles.Forms
             }
             return alreadyFound;
         }
-        //private static void AddFiles(string path, IList<string> files)
-        //{
-        //    var t = Task.Run(() =>
-        //    {
-        //        try
-        //        {
-        //            Directory.GetFiles(path)
-        //                .ToList()
-        //                .ForEach(s => files.Add(s));
-
-        //            Directory.GetDirectories(path)
-        //                .ToList()
-        //                .ForEach(s => AddFiles(s, files));
-        //        }
-        //        catch (UnauthorizedAccessException)
-        //        {
-
-        //        }
-        //    });
-        //    t.Wait();
-        //}
         void ThemeMode()
         {
             using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true);
@@ -395,13 +366,12 @@ namespace SteamProfiles.Forms
         {
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true))
             {
-                key.SetValue("Language", comboBox2.SelectedItem);
-
-                if (start)
+                if (comboBox2.SelectedItem.ToString() != key.GetValue("Language").ToString())
                 {
                     DialogResult result = MessageBox.Show(RestartText, RestartRequired, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
+                        key.SetValue("Language", comboBox2.SelectedItem);
                         key.SetValue("temp", "1");
                         System.Windows.Forms.Application.Restart();
                     }

@@ -20,13 +20,15 @@ namespace SteamProfiles
     public partial class SteamProfiles : Form
     {
         ResourceManager res;
+
         string SteamSettings, SuccessRemove, Dublicate;
         StyleSettings settings;
-       public SteamProfiles()
+        public SteamProfiles()
         {
             Lang();
             Runing();
             InitializeComponent();
+            WindowState = FormWindowState.Normal;
         }
         void Runing()
         {
@@ -90,38 +92,40 @@ namespace SteamProfiles
                 }
             }
         }
-        void ContextMenuTheme(Color BackColor,Color Forecolor)
+        void ContextMenuTheme(ContextMenuStrip contextMenuStrip, Color BackColor, Color Forecolor)
         {
-            for (int i = 0; i < gridmenustrip.Items.Count; i++)
+
+            for (int i = 0; i < contextMenuStrip.Items.Count; i++)
             {
-                gridmenustrip.Items[i].BackColor = BackColor;
-                gridmenustrip.Items[i].ForeColor = Forecolor;
-                ToolStripMenuItem items = gridmenustrip.Items[i] as ToolStripMenuItem;
-                for (int j = 0; j < items.DropDownItems.Count; j++)
+                contextMenuStrip.Items[i].BackColor = BackColor;
+                contextMenuStrip.Items[i].ForeColor = Forecolor;
+                ToolStripMenuItem items = contextMenuStrip.Items[i] as ToolStripMenuItem;
+                if (items != null && items.DropDownItems.Count > 0)
                 {
-                    items.DropDownItems[j].BackColor = BackColor;
-                    items.DropDownItems[j].ForeColor = Forecolor;
-                    ToolStripMenuItem DropedItems = items;
-                    if (DropedItems.DropDownItems.Count > 0)
+                    for (int j = 0; j < items.DropDownItems.Count; j++)
                     {
-                        for (int k = 0; k < DropedItems.DropDownItems.Count; k++)
+                        items.DropDownItems[j].BackColor = BackColor;
+                        items.DropDownItems[j].ForeColor = Forecolor;
+                        ToolStripMenuItem DropedItems = items.DropDownItems[j] as ToolStripMenuItem;
+                        if (DropedItems.DropDownItems.Count > 0)
                         {
-                            DropedItems.DropDownItems[k].BackColor = BackColor;
-                            DropedItems.DropDownItems[k].ForeColor = Forecolor;
+                            for (int k = 0; k < DropedItems.DropDownItems.Count; k++)
+                            {
+                                DropedItems.DropDownItems[k].BackColor = BackColor;
+                                DropedItems.DropDownItems[k].ForeColor = Forecolor;
+                            }
                         }
                     }
                 }
             }
-            for (int i = 0; i < notifymenustrip.Items.Count; i++)
+            toolStripSeparator1.Paint += (s, e) =>
             {
-                notifymenustrip.Items[i].BackColor = BackColor;
-                notifymenustrip.Items[i].ForeColor = Forecolor;
-            }
-            showToolStripMenuItem.BackColor = BackColor;
-            showToolStripMenuItem.ForeColor = Forecolor;
+                int w = toolStripSeparator1.Width;
+                int h = toolStripSeparator1.Height;
+                e.Graphics.FillRectangle(new SolidBrush(BackColor), 0, 0, w, h);
+                e.Graphics.DrawLine(new Pen(Forecolor), 7, h/2, w - 12, h/2);
+            };
 
-            hideToolStripMenuItem.BackColor = BackColor;
-            hideToolStripMenuItem.ForeColor = Forecolor;
         }
         bool ThemeMode()
         {
@@ -150,7 +154,8 @@ namespace SteamProfiles
                         FlatApperence(Color.FromArgb(55, 55, 55));
                         gridmenustrip.Renderer = new ChangeMunuStripDark();
                         notifymenustrip.Renderer = new ChangeMunuStripDark();
-                        ContextMenuTheme(Color.FromArgb(45, 45, 45),Color.White);
+                        ContextMenuTheme(gridmenustrip, Color.FromArgb(45, 45, 45), Color.White);
+                        ContextMenuTheme(notifymenustrip, Color.FromArgb(45, 45, 45), Color.White);
                         Themes.ChangeForeColor(true, this, Color.White);
                         break;
                     case "Light":
@@ -173,7 +178,8 @@ namespace SteamProfiles
                         FlatApperence(Color.FromArgb(158, 169, 174));
                         gridmenustrip.Renderer = new ChangeMunuStripLight();
                         notifymenustrip.Renderer = new ChangeMunuStripLight();
-                        ContextMenuTheme(Color.FromArgb(166, 177, 183),Color.Black);
+                        ContextMenuTheme(gridmenustrip, Color.FromArgb(166, 177, 183), Color.Black);
+                        ContextMenuTheme(notifymenustrip, Color.FromArgb(166, 177, 183), Color.Black);
                         Themes.ChangeForeColor(true, this, Color.Black);
                         break;
                     case "OldSchool":
@@ -196,7 +202,8 @@ namespace SteamProfiles
                         FlatApperence(Color.FromArgb(0, 0, 75));
                         gridmenustrip.Renderer = new ChangeMunuStripOldSchool();
                         notifymenustrip.Renderer = new ChangeMunuStripOldSchool();
-                        ContextMenuTheme(Color.FromArgb(0, 0, 80),Color.White);
+                        ContextMenuTheme(gridmenustrip, Color.FromArgb(0, 0, 80), Color.White);
+                        ContextMenuTheme(notifymenustrip, Color.FromArgb(0, 0, 80), Color.White);
                         Themes.ChangeForeColor(true, this, Color.White);
                         break;
                     default:
@@ -240,7 +247,7 @@ namespace SteamProfiles
                     metroGrid1.DefaultCellStyle.ForeColor = Color.FromArgb(settings.CellTextColor.CellTextColorR, settings.CellTextColor.CellTextColorG, settings.CellTextColor.CellTextColorB);
                     metroGrid1.DefaultCellStyle.Font = settings.CellSize;
                 }
-                
+
             }
         }
         public void MinimizeApp(string parameter)
@@ -442,7 +449,7 @@ namespace SteamProfiles
                 case "Dark":
                     ToolStrip.BackColor = Color.FromArgb(45, 45, 45);
                     ToolStrip.ForeColor = Color.White;
-                    break; 
+                    break;
                 case "Light":
                     ToolStrip.BackColor = Color.FromArgb(166, 177, 183);
                     ToolStrip.ForeColor = Color.Black;
@@ -469,6 +476,12 @@ namespace SteamProfiles
                 notifymenustrip.Items.Add(ToolStrip);
             }
 
+        }
+        void ShowProfiles(Control control)
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
+            control.Show();
         }
         private void AddToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -705,6 +718,7 @@ namespace SteamProfiles
         private void Open_Click(object sender, EventArgs e)
         {
             Show();
+            WindowState = FormWindowState.Normal;
         }
 
         private void MetroGrid1_ColumnHeadersDefaultCellStyleChanged(object sender, EventArgs e)
@@ -725,10 +739,7 @@ namespace SteamProfiles
                 if (style.GetValue("Style") != null)
                 {
                     Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles", true).DeleteValue("Style");
-                    metroGrid1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-                    metroGrid1.DefaultCellStyle.ForeColor = Color.White;
-                    metroGrid1.DefaultCellStyle.Font = new Font(metroGrid1.ColumnHeadersDefaultCellStyle.Font.FontFamily, 11f);
-                    metroGrid1.ColumnHeadersDefaultCellStyle.Font = new Font(metroGrid1.ColumnHeadersDefaultCellStyle.Font.FontFamily, 11f);
+                    ThemeMode();
                 }
             }
         }
@@ -740,6 +751,26 @@ namespace SteamProfiles
         private void RedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             metroGrid1.DefaultCellStyle.ForeColor = Color.Red;
+        }
+
+        private void addToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ShowProfiles(new AddProfile());
+        }
+        
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowProfiles(new EditProfile());
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowProfiles(new Settings());
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowProfiles(new About());
         }
 
         private void SteamProfiles_Activated(object sender, EventArgs e)
