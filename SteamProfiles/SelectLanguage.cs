@@ -14,19 +14,22 @@ namespace SteamProfiles
         public static void Lang()
         {
             using RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\SteamProfiles");
-            if (key.GetValue("Language").ToString() == "Русский")
+            try
             {
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru");
+                if (key.GetValue("Language").ToString() == "Русский")
+                {
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru");
+                }
+                else if (key.GetValue("Language").ToString() == "English")
+                {
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+                }
+                else if (key.GetValue("Language").ToString() == "Українська")
+                {
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("uk-UA");
+                }
             }
-            else if (key.GetValue("Language").ToString() == "English")
-            {
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
-            }
-            else if (key.GetValue("Language").ToString() == "Українська")
-            {
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("uk-UA");
-            }
-            else
+            catch (Exception)
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
                 key.SetValue("Language", "English");
