@@ -153,8 +153,8 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Автор: BlackDream</value>
   </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>Підтримати автора</value>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>На каву</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

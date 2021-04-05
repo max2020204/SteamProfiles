@@ -179,6 +179,9 @@
     <EmbeddedResource Include="Forms\Settings.uk.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resource\About\Res.en.resx" />
+    <EmbeddedResource Include="Resource\About\Res.ru.resx" />
+    <EmbeddedResource Include="Resource\About\Res.uk.resx" />
     <EmbeddedResource Include="Resource\Add\Res.en.resx" />
     <EmbeddedResource Include="Resource\Add\Res.ru.resx" />
     <EmbeddedResource Include="Resource\Add\Res.uk.resx" />
